@@ -8,11 +8,11 @@ using Microsoft.Extensions.Logging;
 
 namespace BookingSystemRRC.Pages
 {
-    public class PrivacyModel : PageModel
+    public class BookingModel : PageModel
     {
-        private readonly ILogger<PrivacyModel> _logger;
+        private readonly ILogger<BookingModel> _logger;
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        public BookingModel(ILogger<BookingModel> logger)
         {
             _logger = logger;
         }
