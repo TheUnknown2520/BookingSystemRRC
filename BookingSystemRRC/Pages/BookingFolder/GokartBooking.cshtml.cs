@@ -6,23 +6,25 @@ using BookingSystemRRC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using BookingSystemRRC.Pages.Booking;
 
-namespace BookingSystemRRC.Pages
+namespace BookingSystemRRC.Pages.BookingFolder
 {
-    public class BookingModel : PageModel
+    public class GokartBookingModel : PageModel
     {
-        private readonly ILogger<BookingModel> _logger;
+        private readonly ILogger<GokartBookingModel> _logger;
 
-        public BookingModel(ILogger<BookingModel> logger)
+        public GokartBookingModel(ILogger<GokartBookingModel> logger)
         {
             _logger = logger;
         }
 
         public Guest Guest { get; set; }
+        public Booking Booking { get; set; }
 
         public void OnGet()
         {
-            Guest = new Guest() { BookingId = 1, Name = "Christopher", Address = "Østerdalsgade 12", Email = "Chrisseria2520@gmail.com", PhoneNumber = 31353551, Comment = "Der skal stå øl klar" };
+            
         }
     }
 }
