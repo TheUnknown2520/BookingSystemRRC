@@ -1,8 +1,20 @@
 ﻿@page
 @model BookingModel
+@using BookingSystemRRC.Models
 @{
     ViewData["Title"] = "Booking";
 }
 <h1>@ViewData["Title"]</h1>
 
 <p>hej </p>
+
+@{ 
+    var guest = Model.Guest;
+}
+
+<h6>My ID is : @guest.BookingId </h6>
+<h6>My Name is : @guest.Name </h6>
+<h6>My Address is : @guest.Address </h6>
+<h6>My Email is : @guest.Email </h6>
+<h6>My PhoneNumber is : @guest.PhoneNumber </h6>
+<h6>My Comment is : @guest.Comment </h6>
