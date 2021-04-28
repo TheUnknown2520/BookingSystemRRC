@@ -80,6 +80,5 @@ namespace BookingSystemRRC.Services
 
 #endregion
 
-
     }
 }
