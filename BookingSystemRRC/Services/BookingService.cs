@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookingSystemRRC.Models;
+using BookingSystemRRC.MockData;
 
 namespace BookingSystemRRC.Services
 {
@@ -11,7 +12,11 @@ namespace BookingSystemRRC.Services
 
         private List<Booking> bookings;
 
-        
+
+        public BookingService()
+        {
+            bookings = MockBooking.GetMockBookings();
+        }
 
         //henter en booking via dens booking nummer
         public Booking GetBooking(int bookingNumber)
@@ -23,6 +28,9 @@ namespace BookingSystemRRC.Services
             }
             return null;
         }
+
+        
+
 
         #region CustomizeBookings
 
