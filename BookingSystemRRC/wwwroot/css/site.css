@@ -1,71 +1,179 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+/*#region Default*/
+
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }
+
+.calendarBTN
+
+{
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/*#endregion Default*/
+
+/*#region Calendar*/
+
+    thead th 
+    {
+        text-align: center;
+        width: 100%;
+    }
+
+
+    header h1 
+    {
+        font-size: 1.25rem;
+        text-align: center;
+        font-weight: normal;
+    }
+
+tbody 
+{
+    position: relative;
+    top: 100px;
+}
+
+table 
+{
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+
+
+.headcol 
+{
+    width: 60px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0.25rem 0;
+    text-align: center;
+    position: relative;
+    top: 8px;
+    border-bottom: 1px solid transparent;
+
+    border:0;
+}
+
+thead th 
+{
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(178, 110, 14);
+    padding: 1rem;
+}
+
+thead 
+{
+    z-index: 2;
+    background: white;
+    border-bottom: 2px solid #ddd;
+}
+
+tr, tr td 
+{
+    height: 20px;
+}
+
+td 
+{
+    text-align: center;
+}
+
+tr td 
+{
+    border-top: 2px dashed;
+    border-right: 3px solid;
+    border-left: 3px solid;
+    border-bottom: 2px dashed;
+    padding: 0;
+}
+
+tbody tr td 
+{
+    position: relative;
+    vertical-align: top;
+    height: 40px;
+    padding: 0.25rem 0.25rem 0 0.25rem;
+    width: auto;
+}
+
+/*#endregion Calendar*/

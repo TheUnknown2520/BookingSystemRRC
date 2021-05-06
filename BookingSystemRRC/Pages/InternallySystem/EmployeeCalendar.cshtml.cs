@@ -1,12 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using BookingSystemRRC.Models;
 using BookingSystemRRC.Services;
-using BookingSystemRRC.MockData;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
 
 namespace BookingSystemRRC.Pages.InternallySystem
 {
@@ -17,10 +15,10 @@ namespace BookingSystemRRC.Pages.InternallySystem
         public List<Booking> bookings { get; private set; }
 
 
-    public EmployeeCalendarModel(BookingService bookingService)
+        public EmployeeCalendarModel(BookingService bookingService)
         {
             this.bookingService = bookingService;
-            
+
         }
 
         public IActionResult OnGet()

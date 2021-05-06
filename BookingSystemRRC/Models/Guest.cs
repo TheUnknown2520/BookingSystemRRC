@@ -7,11 +7,7 @@ namespace BookingSystemRRC.Models
 {
     public class Guest
     {
-        public int GuestNumber 
-        {
-            get { return GuestNumber; }
-            set { GuestNumber = 100000; }
-        }
+        public int GuestNumber { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
@@ -28,7 +24,7 @@ namespace BookingSystemRRC.Models
 
         public Guest(int guestNumber, string name, string address, string email, int phoneNumber, string nationality, string guestComment, string createdBy)
         {
-            GuestNumber = guestNumber++;
+            GuestNumber = guestNumber;
             Name = name;
             Address = address;
             Email = email;

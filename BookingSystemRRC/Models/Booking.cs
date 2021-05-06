@@ -8,11 +8,7 @@ namespace BookingSystemRRC.Models
     public class Booking
     {
 
-        public int BookingNumber 
-        {
-            get { return BookingNumber; }
-            set { BookingNumber = 100000; }
-        }
+        public int BookingNumber { get; set; }
         public int NumberOfPeople { get ; set; }
         public int TotalPrice { get; set; }
         public string Type { get; set; }
@@ -27,7 +23,7 @@ namespace BookingSystemRRC.Models
 
         public Booking(int bookingNumber, int numberOfPeople, int totalprice, string type, string bookingComemnt, string createdBy)
         {
-            BookingNumber = bookingNumber++;
+            BookingNumber = bookingNumber;
             NumberOfPeople = numberOfPeople;
             TotalPrice = totalprice;
             Type = type;
