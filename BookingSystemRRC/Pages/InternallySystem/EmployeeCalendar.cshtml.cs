@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using BookingSystemRRC.Models;
@@ -26,5 +27,6 @@ namespace BookingSystemRRC.Pages.InternallySystem
             bookings = bookingService.GetBookings().ToList();
             return Page();
         }
+
     }
 }

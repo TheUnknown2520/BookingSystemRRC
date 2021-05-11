@@ -13,6 +13,8 @@ namespace BookingSystemRRC.Models
         public int TotalPrice { get; set; }
         public string Type { get; set; }
         public string BookingComment { get; set; }
+
+
         public string CreatedBy { get; set; }
 
 
