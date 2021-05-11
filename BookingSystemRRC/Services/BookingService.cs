@@ -18,7 +18,7 @@ namespace BookingSystemRRC.Services
         {
             DbService = dbService;
             //bookings = MockBooking.GetMockBookings();
-            //foreach(Booking booking in bookings)
+            //foreach (Booking booking in bookings)
             //{
             //    dbService.AddBooking(booking);
             //}

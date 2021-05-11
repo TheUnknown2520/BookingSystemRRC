@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingSystemRRC.Migrations
 {
     [DbContext(typeof(BookingDbContext))]
-    [Migration("20210507105022_BookingSystemRRC")]
+    [Migration("20210511075557_BookingSystemRRC")]
     partial class BookingSystemRRC
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,7 +34,6 @@ namespace BookingSystemRRC.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NumberOfPeople")
-                        .HasMaxLength(2)
                         .HasColumnType("int");
 
                     b.Property<int>("TotalPrice")

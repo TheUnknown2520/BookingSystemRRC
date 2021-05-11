@@ -11,7 +11,7 @@ namespace BookingSystemRRC.Migrations
                 columns: table => new
                 {
                     BookingNumber = table.Column<int>(type: "int", nullable: false),
-                    NumberOfPeople = table.Column<int>(type: "int", maxLength: 2, nullable: false),
+                    NumberOfPeople = table.Column<int>(type: "int", nullable: false),
                     TotalPrice = table.Column<int>(type: "int", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BookingComment = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
