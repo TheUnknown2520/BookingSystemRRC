@@ -1,0 +1,67 @@
+﻿@page
+@model BookingSystemRRC.Pages.BookingRRC.BookingAcceptanceModel
+@{
+}
+<div>
+    <table class="table table-bordered table-hover table-striped" width="60%">
+        <col style=" width: 15%" />
+        <col style="width: 15%" />
+        <col style="width: 15%" />
+        <col style="width: 30%" />
+        <col style="width: 15%" />
+        <thead>
+            <tr class="btn-secondary active">
+                <th>
+                    <div><h4> Ordernummer</h4> </div>
+                </th>
+                <th>
+                    <div><h4> Lavet af</h4> </div>
+                </th>
+                <th>
+                    <div><h4> Antal personer </h4> </div>
+                </th>
+                <th>
+                    <div><h4> Komenter</h4> </div>
+                </th>
+                <th>
+                    <div><h3> Action </h3></div>
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (@Model.bookings != null)
+            {
+                foreach(var bookings in Model.bookings)
+                {
+                    <tr>
+                        <td >
+                            @bookings.BookingNumber
+                        </td>
+                        <td>
+                            @bookings.CreatedBy
+                        </td>
+                        <td>
+                            @bookings.NumberOfPeople
+                        </td>
+                        <td>
+                            @bookings.BookingComment
+                        </td>
+                        <td>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip" title="Edit" asp-page="/BookingRRC/UpdateBooking" asp-route-id="@bookings.BookingNumber"> <i class="fa fa-edit"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="delete" asp-page="DeleteBooking" asp-route-id="@bookings.BookingNumber"> <i class="fa fa-trash"></i></a>
+                                </li>
+                                
+                            </ul>
+
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

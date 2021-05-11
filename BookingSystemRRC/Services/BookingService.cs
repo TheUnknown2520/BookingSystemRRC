@@ -12,10 +12,18 @@ namespace BookingSystemRRC.Services
 
         private List<Booking> bookings;
 
+        public DbService DbService { get; set; }
 
-        public BookingService()
+        public BookingService(DbService dbService)
         {
-            bookings = MockBooking.GetMockBookings();
+            DbService = dbService;
+            //bookings = MockBooking.GetMockBookings();
+            //foreach(Booking booking in bookings)
+            //{
+            //    dbService.AddBooking(booking);
+            //}
+
+            bookings = dbService.GetBookings().Result;
         }
 
         //henter en booking via dens booking nummer
@@ -29,8 +37,11 @@ namespace BookingSystemRRC.Services
             return null;
         }
 
-        
 
+        public IEnumerable<Booking> GetBookings()
+        {
+            return bookings;
+        }
 
         #region CustomizeBookings
 
@@ -43,10 +54,7 @@ namespace BookingSystemRRC.Services
             }
         }
         // retuner hele listen med alle bookings
-        public IEnumerable<Booking> GetBookings()
-        {
-            return bookings;
-        }
+        
 
         
 
@@ -54,17 +62,18 @@ namespace BookingSystemRRC.Services
         public Booking DeleteBooking(int bookingNumber)
         {
             Booking bookingToBeDeleted = null;
-            foreach(Booking booking in bookings)
+            foreach(Booking b in bookings)
             {
-                if(booking.BookingNumber == bookingNumber)
+                if(b.BookingNumber == bookingNumber)
                 {
-                    bookingToBeDeleted = booking;
+                    bookingToBeDeleted = b;
                     break;
                 }
             }
             if(bookingToBeDeleted != null)
             {
                 bookings.Remove(bookingToBeDeleted);
+               
             }
             return bookingToBeDeleted; 
         }
@@ -79,10 +88,20 @@ namespace BookingSystemRRC.Services
                 {
                     if(b.BookingNumber == booking.BookingNumber)
                     {
-                        b.BookingComment = booking.BookingComment;
+                       
                         b.CreatedBy = booking.CreatedBy;
+                        b.NumberOfPeople = booking.NumberOfPeople;
+                        b.TotalPrice = b.TotalPrice;
+                        b.BookingComment = booking.BookingComment;
+                        b.Type = booking.Type;
+
                     }
+
+                    
                 }
+
+                DbService.
+               
             }
         }
 

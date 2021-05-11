@@ -1,0 +1,13 @@
+﻿@page "{id:int}"
+@model BookingSystemRRC.Pages.BookingRRC.DeleteBookingModel
+@{
+}
+
+
+<div class=" alert alert-danger" >
+    <h5> Er du sikker på at du vil slette denne booking - @Model.Booking.BookingNumber</h5>
+    <form method="post">
+        <button type="submit" class="btn btn-danger"> ja </button>
+        <a class="btn btn-primary" asp-page="/BookingRRC/BookingAcceptance"> nej </a>
+    </form>
+</div>

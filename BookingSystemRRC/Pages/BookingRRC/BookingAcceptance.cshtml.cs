@@ -1,32 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BookingSystemRRC.Models;
-using BookingSystemRRC.Services;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using BookingSystemRRC.Models;
+using BookingSystemRRC.Services;
 
-
-namespace BookingSystemRRC.Pages.InternallySystem
+namespace BookingSystemRRC.Pages.BookingRRC
 {
-    public class EmployeeCalendarModel : PageModel
+    public class BookingAcceptanceModel : PageModel
     {
         private BookingService bookingService;
 
-        public List<Booking> bookings { get; private set; }
+        public List<Models.Booking> bookings { get; private set;}
 
-
-        public EmployeeCalendarModel(BookingService bookingService)
+        public BookingAcceptanceModel(BookingService bookingService)
         {
             this.bookingService = bookingService;
-
         }
-
         public IActionResult OnGet()
         {
             bookings = bookingService.GetBookings().ToList();
             return Page();
         }
-
     }
 }
