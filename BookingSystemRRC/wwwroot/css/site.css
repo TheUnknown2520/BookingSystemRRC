@@ -9,6 +9,10 @@ a.navbar-brand {
     word-break: break-all;
 }
 
+.navbar-custom {
+    background-color: #171717;
+}
+
 /* Provide sufficient contrast against white background */
 a {
     color: #0366d6;
@@ -65,6 +69,7 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    background-color: #1f1f1f;
 }
 
 .footer {
