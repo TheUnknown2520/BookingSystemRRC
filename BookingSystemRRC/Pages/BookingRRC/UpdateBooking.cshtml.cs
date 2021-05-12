@@ -12,32 +12,31 @@ namespace BookingSystemRRC.Pages.BookingRRC
     {
         private BookingService bookingService;
 
-       [BindProperty]
         public Models.Booking Booking { get; set; }
 
         public UpdateBookingModel(BookingService bookingService)
         {
             this.bookingService = bookingService;
+
         }
 
         public IActionResult OnGet(int id)
         {
             Booking = bookingService.GetBooking(id);
-            if (Booking == null)
-                return RedirectToPage("/NotFound"); //siden er ikke lavet 
-
             return Page();
+
         }
 
-        public IActionResult OnPost(int id)
+        public IActionResult OnPost()
         {
-            Booking = bookingService.GetBooking(id);
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+
             bookingService.UpdateBooking(Booking);
             return RedirectToPage("/BookingRRC/BookingAcceptance");
         }
+     
     }
 }
