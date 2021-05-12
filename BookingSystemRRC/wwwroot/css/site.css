@@ -3,76 +3,114 @@ for details on configuring this project to bundle and minify static web assets. 
 
 /*#region Default*/
 
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-}
 
-.navbar-custom {
+
+/* Add a black background color to the top navigation */
+.topnav {
     background-color: #171717;
+    overflow: hidden;
+    font-family: sans-serif;
 }
 
-/* Provide sufficient contrast against white background */
-a {
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+        /* Change the color of links on hover */
+        .topnav a:hover {
+            background-color: #ff540a;
+            color: black;
+        }
+
+        /* Add a color to the active/current link */
+        .topnav a:active 
+        {
+            background-color: #ff540a;
+            color: white;
+        }
+
+    .topnav img {
+        width: 6%;
+        height: auto;
+    }
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+    float: right;
+}
+
+
+/* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
+@media screen and (max-width: 500px) {
+    .navbar a {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: left; /* If you want the text to be left-aligned on small screens */
+    }
+}
+
+
+a 
+{
     color: #0366d6;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
+html 
+{
     font-size: 14px;
 }
 
 @media (min-width: 768px) {
-    html {
+    html 
+    {
         font-size: 16px;
     }
 }
 
-.border-top {
+.border-top 
+{
     border-top: 1px solid #e5e5e5;
 }
 
-.border-bottom {
+.border-bottom 
+{
     border-bottom: 1px solid #e5e5e5;
 }
 
-.box-shadow {
+.box-shadow 
+{
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-button.accept-policy {
+button.accept-policy 
+{
     font-size: 1rem;
     line-height: inherit;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
+html 
+{
     position: relative;
     min-height: 100%;
 }
 
-body {
+body 
+{
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     background-color: #1f1f1f;
 }
 
-.footer {
+
+.footer 
+{
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -80,13 +118,7 @@ body {
     line-height: 60px; /* Vertically center the text there */
 }
 
-.calendarBTN
 
-{
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
 
 /*#endregion Default*/
 
@@ -179,6 +211,17 @@ tbody tr td
     height: 40px;
     padding: 0.25rem 0.25rem 0 0.25rem;
     width: auto;
+}
+
+li {
+    float: left;
+    width: 50%; /* Split width appropriately */
+}
+
+.calendarBTN {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 /*#endregion Calendar*/
