@@ -32,7 +32,6 @@ namespace BookingSystemRRC.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NumberOfPeople")
-                        .HasMaxLength(2)
                         .HasColumnType("int");
 
                     b.Property<int>("TotalPrice")
