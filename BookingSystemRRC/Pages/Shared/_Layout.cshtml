@@ -3,66 +3,38 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BookingSystemRRC</title>
+    @*<title>@ViewData["Title"] - BookingSystemRRC</title>*@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
+
 <body>
-<header>
-    
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black" style="background-color: #171717;">
-            <div class="container">
-                @*<a class="navbar-brand" asp-area="" asp-page="/Index">BookingSystemRRC</a>*@
-                <a class="navbar-brand" href="#">
-                    <img src="/img/RRClogo.png" alt="" width="80" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Index"><strong>BANEN</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Privacy"><strong>EVENTS</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Privacy"><strong>BOOKING</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Privacy"><strong>GOKART</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Privacy"><strong>RACING</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Privacy"><strong>BLÅ MANDAG</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Privacy"><strong>SAMARBEJDSPARTNERE</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Privacy"><strong>ROSKILDE RACING SCHOOL</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/BookingRRC/BookingAcceptance"><strong>INFO</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/InternallySystem/EmployeeCalendar"><strong>BOOKING</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Privacy"><strong>ONLINE BOOKING</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Admin/CreateUser"><strong>OPRET BRUGER</strong></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-</header>
+
+    <div class="topnav">
+        <img src="/img/RRClogo.png" />
+
+        <div class="topnav-right">
+            <a asp-area="" asp-page="/Index">B ANEN</a>
+
+            <a asp-area="" asp-page="/Privacy">EVENTS</a>
+
+            <a asp-area="" asp-page="/Privacy">BOOKING</a>
+
+            <a asp-area="" asp-page="/Privacy">RACING</a>
+
+            <a asp-area="" asp-page="/InternallySystem/EmployeeCalendar">BOOKING</a>
+
+            <a asp-area="" asp-page="/Privacy">BLÅ MANDAG</a>
+
+            <a asp-area="" asp-page="/Privacy">SAMARBEJDSPARTNERE</a>
+
+            <a asp-area="" asp-page="/Privacy">ROSKILDE RACING SCHOOL</a>
+
+            <a asp-area="" asp-page="/BookingRRC/BookingAcceptance">INFO</a>
+
+        </div>
+    </div>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
