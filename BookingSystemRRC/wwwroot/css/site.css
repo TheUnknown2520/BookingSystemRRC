@@ -226,3 +226,15 @@ li {
 
 /*#endregion Calendar*/
 
+/*input Create booking*/
+
+.input-fields .input {
+    margin: 10px 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid #ff540a;
+    padding: 10px; 
+    color: #ff540a;
+    width: 100%; 
+    
+}

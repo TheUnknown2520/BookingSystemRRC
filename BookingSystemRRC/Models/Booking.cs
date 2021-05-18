@@ -23,6 +23,10 @@ namespace BookingSystemRRC.Models
         public string BookingComment { get; set; }
         [Required]
         public string CreatedBy { get; set; }
+
+        public Guest Guest { get; set; }
+
+
         public static int Nextbookingnumber = 100000;
 
         public Booking()

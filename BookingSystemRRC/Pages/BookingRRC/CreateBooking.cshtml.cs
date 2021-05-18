@@ -16,9 +16,12 @@ namespace BookingSystemRRC.Pages.BookingRRC
         // For at kunne bruge Booking Service og Listen af gæster, kræver det en reference til Services.BookingService.cs
         private BookingService bookingService;
         private List<Models.Booking> bookings;
+        private List<Models.Guest> Guests;
 
         [BindProperty]
         public Models.Booking Booking { get; set; }
+        [BindProperty]
+        public Models.Guest Guest { get; set; }
 
         public CreateBookingModel(BookingService bookingService)
         {
