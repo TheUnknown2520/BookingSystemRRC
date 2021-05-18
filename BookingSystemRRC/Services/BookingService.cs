@@ -26,6 +26,9 @@ namespace BookingSystemRRC.Services
             //bookings = dbService.GetObjectsAsync().Result.ToList();
         }
 
+
+
+
         //henter en booking via dens booking nummer
         public Booking GetBooking(int bookingNumber)
         {
@@ -102,7 +105,21 @@ namespace BookingSystemRRC.Services
             }
         }
 
-#endregion
+        #endregion
 
+
+        public void MoveBookingLeft(int id)
+        {
+            Booking booking = GetBooking(id);
+            booking.TimeSlotbookings.WeekDays--;
+
+        }
+
+        public void MoveBookingRight(int id)
+        {
+            Booking booking = GetBooking(id);
+            booking.TimeSlotbookings.WeekDays++;
+
+        }
     }
 }
