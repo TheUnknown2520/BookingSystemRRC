@@ -34,10 +34,11 @@ namespace BookingSystemRRC
             //services.AddSingleton<DbService, DbService>();
             services.AddSingleton<DbGenericService<Booking>, DbGenericService<Booking>>();
             services.AddSingleton<DbGenericService<Guest>, DbGenericService<Guest>>();
+            services.AddSingleton<DbGenericService<TimeSlotBooking>, DbGenericService<TimeSlotBooking>>();
 
-           
 
-           
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
