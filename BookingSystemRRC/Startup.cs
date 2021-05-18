@@ -29,16 +29,16 @@ namespace BookingSystemRRC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddDbContext < BookingDbContext>();
             services.AddSingleton<BookingService, BookingService>();
-            services.AddSingleton<DbService, DbService>();
+            //services.AddSingleton<DbService, DbService>();
+            services.AddSingleton<DbGenericService<Booking>, DbGenericService<Booking>>();
+            services.AddSingleton<DbGenericService<Guest>, DbGenericService<Guest>>();
+            services.AddSingleton<DbGenericService<TimeSlotBooking>, DbGenericService<TimeSlotBooking>>();
 
 
-            services.AddDbContext<BookingDbContext>();
 
-            //services.AddMvc().AddRazorPagesOptions(options =>
-            //{
-            //    options.Conventions.AuthorizeFolder("/BookingRRC");
-            //}).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

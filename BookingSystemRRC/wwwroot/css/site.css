@@ -3,64 +3,12 @@ for details on configuring this project to bundle and minify static web assets. 
 
 /*#region Default*/
 
-
-
-/* Add a black background color to the top navigation */
-.topnav {
-    background-color: #171717;
-    overflow: hidden;
-    font-family: sans-serif;
-}
-
-    /* Style the links inside the navigation bar */
-    .topnav a {
-        float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-    }
-
-        /* Change the color of links on hover */
-        .topnav a:hover {
-            background-color: #ff540a;
-            color: black;
-        }
-
-        /* Add a color to the active/current link */
-        .topnav a:active 
-        {
-            background-color: #ff540a;
-            color: white;
-        }
-
-    .topnav img {
-        width: 6%;
-        height: auto;
-    }
-
-/* Right-aligned section inside the top navigation */
-.topnav-right {
-    float: right;
+body {
+    background-image: url("../img/Gokart.jpg");
+    background-size: cover;
 }
 
 
-/* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
-@media screen and (max-width: 500px) {
-    .navbar a {
-        float: none;
-        display: block;
-        width: 100%;
-        text-align: left; /* If you want the text to be left-aligned on small screens */
-    }
-}
-
-
-a 
-{
-    color: #0366d6;
-}
 
 html 
 {
@@ -226,3 +174,73 @@ li {
 
 /*#endregion Calendar*/
 
+/*input Create booking*/
+
+.input-fields .input {
+    margin: 10px 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid #ff540a;
+    padding: 10px; 
+    color: #ff540a;
+    width: 100%; 
+    
+}
+/*#region Navigation-bar*/
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #171717;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #ff540a;
+        color: black;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a:active {
+        background-color: #ff540a;
+        color: white;
+    }
+
+.topnav img {
+    width: 6%;
+    height: auto;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+    float: right;
+}
+
+
+/* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
+@media screen and (max-width: 500px) {
+    .navbar a {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: left; /* If you want the text to be left-aligned on small screens */
+    }
+}
+
+
+a {
+    color: #0366d6;
+}
+
+/*#endregion Navigation-bar*/

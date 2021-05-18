@@ -23,20 +23,16 @@ namespace BookingSystemRRC.Pages.BookingRRC
 
         public IActionResult OnGet(int id)
         {
-            Booking = bookingService.DeleteBooking(id);
+            Booking = bookingService.GetBooking(id);
             if (Booking == null)
-                return RedirectToPage("/NotFound"); // er ikke lavet endnu 
-
-
+                return RedirectToPage("/NotFound"); // er ikke lavet endnu
             return Page();
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost(int id)
         {
-            Models.Booking deletedBooking = bookingService.DeleteBooking(Booking.BookingNumber);
-            //if (deletedBooking == null)
-            //    return RedirectToPage("/NotFound");// siden er ikke lavet 
-
+            Booking = bookingService.GetBooking(id);
+            bookingService.DeleteBookingAsync(Booking.BookingNumber);
             return RedirectToPage("/BookingRRC/BookingAcceptance");
         }
     }

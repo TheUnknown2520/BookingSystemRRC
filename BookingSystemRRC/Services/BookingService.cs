@@ -12,19 +12,22 @@ namespace BookingSystemRRC.Services
 
         private List<Booking> bookings;
 
-        public DbService DbService { get; set; }
+        public DbGenericService<Booking> DbService { get; set; }
 
-        public BookingService(DbService dbService)
+        public BookingService(DbGenericService<Booking> dbService)
         {
             DbService = dbService;
             bookings = MockBooking.GetMockBookings();
             foreach (Booking booking in bookings)
             {
-                dbService.AddBooking(booking);
+                dbService.AddObjectAsync(booking);
             }
 
-            //bookings = dbService.GetBookings().Result;
+            //bookings = dbService.GetObjectsAsync().Result.ToList();
         }
+
+
+
 
         //henter en booking via dens booking nummer
         public Booking GetBooking(int bookingNumber)
@@ -46,11 +49,12 @@ namespace BookingSystemRRC.Services
         #region CustomizeBookings
 
         //Opretter en booking
-        public void CreateBooking(Booking booking)
+        public async Task CreateBookingAsync(Booking booking)
         {
             if (!(bookings.Contains(booking)))
             {
                 bookings.Add(booking);
+                await DbService.AddObjectAsync(booking);
             }
         }
         // retuner hele listen med alle bookings
@@ -59,23 +63,23 @@ namespace BookingSystemRRC.Services
         
 
         //Sletter en booking ud fra booking nr
-        public Booking DeleteBooking(int bookingNumber)
+        public async Task DeleteBookingAsync(int bookingNumber)
         {
-            Booking bookingToBeDeleted = null;
-            foreach(Booking b in bookings)
-            {
-                if(b.BookingNumber == bookingNumber)
-                {
-                    bookingToBeDeleted = b;
-                    break;
-                }
-            }
+            Booking bookingToBeDeleted = bookings.Find(booking => booking.BookingNumber == bookingNumber);
+            //foreach(Booking b in bookings)
+            //{
+            //    if(b.BookingNumber == bookingNumber)
+            //    {
+            //        bookingToBeDeleted = b;
+            //        break;
+            //    }
+            //}
             if(bookingToBeDeleted != null)
             {
                 bookings.Remove(bookingToBeDeleted);
-               
+                 await DbService.DeleteObjectAsync(bookingToBeDeleted);
             }
-            return bookingToBeDeleted; 
+             
         }
         
         //Opdaterer/redigerer en booking
@@ -84,27 +88,38 @@ namespace BookingSystemRRC.Services
         {
             if(booking != null)
             {
-                foreach(Booking b in bookings)
+                foreach (Booking b in bookings)
                 {
-                    if(b.BookingNumber == booking.BookingNumber)
+                    if (b.BookingNumber == booking.BookingNumber)
                     {
-                       
                         b.CreatedBy = booking.CreatedBy;
                         b.NumberOfPeople = booking.NumberOfPeople;
                         b.TotalPrice = b.TotalPrice;
                         b.BookingComment = booking.BookingComment;
                         b.Type = booking.Type;
-
                     }
-
-                    
                 }
 
+                DbService.UpdateObjectAsync(booking);
                
             }
         }
 
-#endregion
+        #endregion
 
+
+        public void MoveBookingLeft(int id)
+        {
+            Booking booking = GetBooking(id);
+            booking.TimeSlotbookings.WeekDays--;
+
+        }
+
+        public void MoveBookingRight(int id)
+        {
+            Booking booking = GetBooking(id);
+            booking.TimeSlotbookings.WeekDays++;
+
+        }
     }
 }

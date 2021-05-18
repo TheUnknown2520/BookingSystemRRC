@@ -4,14 +4,16 @@ using BookingSystemRRC.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookingSystemRRC.Migrations
 {
     [DbContext(typeof(BookingDbContext))]
-    partial class BookingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210518110040_BookingSystemRRC")]
+    partial class BookingSystemRRC
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,7 +34,7 @@ namespace BookingSystemRRC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("GuestNumber")
+                    b.Property<int>("FkTimeSlotId")
                         .HasColumnType("int");
 
                     b.Property<int>("NumberOfPeople")
@@ -50,7 +52,7 @@ namespace BookingSystemRRC.Migrations
 
                     b.HasKey("BookingNumber");
 
-                    b.HasIndex("GuestNumber");
+                    b.HasIndex("TimeSlotbookingsTimeSlotId");
 
                     b.ToTable("Bookings");
                 });
@@ -86,18 +88,29 @@ namespace BookingSystemRRC.Migrations
                     b.ToTable("Guests");
                 });
 
-            modelBuilder.Entity("BookingSystemRRC.Models.Booking", b =>
+            modelBuilder.Entity("BookingSystemRRC.Models.TimeSlotBooking", b =>
                 {
-                    b.HasOne("BookingSystemRRC.Models.Guest", "Guest")
-                        .WithMany("Bookings")
-                        .HasForeignKey("GuestNumber");
+                    b.Property<int>("TimeSlotId")
+                        .HasColumnType("int");
 
-                    b.Navigation("Guest");
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("WeekDays")
+                        .HasColumnType("int");
+
+                    b.HasKey("TimeSlotId");
+
+                    b.ToTable("TimeSlotBooking");
                 });
 
-            modelBuilder.Entity("BookingSystemRRC.Models.Guest", b =>
+            modelBuilder.Entity("BookingSystemRRC.Models.Booking", b =>
                 {
-                    b.Navigation("Bookings");
+                    b.HasOne("BookingSystemRRC.Models.TimeSlotBooking", "TimeSlotbookings")
+                        .WithMany()
+                        .HasForeignKey("TimeSlotbookingsTimeSlotId");
+
+                    b.Navigation("TimeSlotbookings");
                 });
 #pragma warning restore 612, 618
         }

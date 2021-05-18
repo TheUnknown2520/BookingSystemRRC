@@ -7,49 +7,58 @@
     <div class="row">
         <div class="col-3">
             <form method="post">
+                <div class="input-fields">
+                    @*<label asp-for="@Model.Guest.Name" class="control-label "><b class="text-white"> Name</b></label>*@
+                    <input asp-for="@Model.Guest.Name" class="input" placeholder=" Navn" />
+                   
+                
+
+                    @*<label asp-for="@Model.Guest.Email" class="control-label "><b class="text-white"> Email</b></label>*@
+                    <input asp-for="@Model.Guest.Email" class="input" placeholder=" Email" />
+                 
+               
+
+               
+                    @*<label asp-for="@Model.Guest.PhoneNumber" class="control-label "><b class="text-white">Telefon nummer</b></label>*@
+                    <input asp-for="@Model.Guest.PhoneNumber" class="input" placeholder="Nummer" />
+                   
+               
+
                 <div class="form-group">
-                    <label asp-for="@Model.Guest.Name" class="control-label "><b class="text-black">Guest's Name</b></label>
-                    <input asp-for="@Model.Guest.Name" class="form-control" />
-                    <span asp-validation-for="@Model.Guest.Name" class="text-danger"></span>
+                    @*<label asp-for="@Model.Guest.Nationality" class="control-label "><b class="text-white">land</b></label>*@
+                    <input asp-for="@Model.Guest.Nationality" class="input" placeholder="land"  />
+                  
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="@Model.Booking.CreatedBy" class="control-label ">@*<b class="text-white">Opretet af</b>*@</label>
+                    <input asp-for="@Model.Booking.CreatedBy" class="input" placeholder=" opretet af" />
+                  
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="@Model.Guest.Email" class="control-label "><b class="text-black">Guest's Email</b></label>
-                    <input asp-for="@Model.Guest.Email" class="form-control" />
-                    <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
+                    <label asp-for="@Model.Booking.NumberOfPeople" class="control-label "><b class="text-white">Antal personer</b></label>
+                    <input asp-for="@Model.Booking.NumberOfPeople" class="input" placeholder="Antal personer" />
+                   
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="@Model.Guest.PhoneNumber" class="control-label "><b class="text-black">Guest's Phonenumber</b></label>
-                    <input asp-for="@Model.Guest.PhoneNumber" class="form-control" />
-                    <span asp-validation-for="@Model.Guest.PhoneNumber" class="text-danger"></span>
+                    <label asp-for="@Model.Booking.BookingComment" class="control-label "><b class="text-white">kommentar</b></label>
+                    <input asp-for="@Model.Booking.BookingComment" class="input" placeholder="Skriv en komentar her"/>
+               
                 </div>
 
-                <div class="form-group">
-                    <label asp-for="@Model.Guest.Nationality" class="control-label "><b class="text-black">What Language is the guest speaking?</b></label>
-                    <input asp-for="@Model.Guest.Nationality" class="form-control" />
-                    <span asp-validation-for="@Model.Guest.Nationality" class="text-danger"></span>
-                </div>
+               
 
                 <div class="form-group">
-                    <label asp-for="@Model.Guest.GuestComment" class="control-label "><b class="text-black">Guest's Note!</b></label>
-                    <input asp-for="@Model.Guest.GuestComment" class="form-control" />
-                    <span asp-validation-for="@Model.Guest.GuestComment" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="@Model.Booking.NumberOfPeople" class="control-label "><b class="text-black">How many people?</b></label>
-                    <input asp-for="@Model.Booking.NumberOfPeople" class="form-control" />
-                    <span asp-validation-for="@Model.Booking.NumberOfPeople" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="@Model.Booking.CreatedBy" class="control-label "><b class="text-black">Who made this Booking? (Employee)</b></label>
-                    <input asp-for="@Model.Booking.CreatedBy" class="form-control" />
-                    <span asp-validation-for="@Model.Booking.CreatedBy" class="text-danger"></span>
+                    <input type="submit" value="Create" class="btn btn-primary" />
                 </div>
             </form>
         </div>
 
+    </div>
+    <div>
+        <a asp-page="/BookingRRC/Acceptance"> tilbage </a>
     </div>
 }

@@ -33,7 +33,7 @@ namespace BookingSystemRRC.Services
         {
             using (var context = new BookingDbContext())
             {
-                foreach(Booking booking in bookings)
+                foreach (Booking booking in bookings)
                 {
                     context.Bookings.Add(booking);
                     context.SaveChanges();
