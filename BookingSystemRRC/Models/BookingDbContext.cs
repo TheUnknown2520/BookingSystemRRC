@@ -15,5 +15,6 @@ namespace BookingSystemRRC.Models
 
             public DbSet<Booking> Bookings { get; set; }
             public DbSet<Guest> Guests { get; set; }
+            public DbSet<Guest> Users { get; set; }
     }
 }
