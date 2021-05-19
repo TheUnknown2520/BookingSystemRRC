@@ -30,13 +30,13 @@
                     <h2 style="text-align:center">Monday</h2>
                     @foreach (var bookings in @Model.bookings)
                     {
-                        if (bookings.WeekDays == Models.Booking.DaysOfWeek.Mon)
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Mon)
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@bookings.Guest.Name*@</h5>
+                                    <h5 class="card-title"> @*@Models.Guest.*@</h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@bookings.BookingComment*@</p>
+                                        <p class="card-text"> @*@booking.BookingComment*@</p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -53,13 +53,13 @@
 
                     @foreach (var bookings in @Model.bookings)
                     {
-                        if (bookings.WeekDays == Models.Booking.DaysOfWeek.Tue)
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Tue)
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@bookings.Guest.Name*@ </h5>
+                                    <h5 class="card-title"> @*@booking.Guest.Name*@ </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@bookings.BookingComment*@ </p>
+                                        <p class="card-text"> @*@booking.BookingComment*@ </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -77,13 +77,13 @@
 
                     @foreach (var bookings in @Model.bookings)
                     {
-                        if (bookings.WeekDays == Models.Booking.DaysOfWeek.Wed)
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Wed)
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@bookings.Guest.Name*@ </h5>
+                                    <h5 class="card-title"> @*@booking.Guest.Name*@ </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@bookings.BookingComment*@ </p>
+                                        <p class="card-text"> @*@booking.BookingComment*@ </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -101,13 +101,13 @@
 
                     @foreach (var bookings in @Model.bookings)
                     {
-                        if (bookings.WeekDays == Models.Booking.DaysOfWeek.Thu)
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Thu)
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@bookings.Guest.Name*@ </h5>
+                                    <h5 class="card-title"> @*@booking.Guest.Name*@ </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@bookings.BookingComment*@ </p>
+                                        <p class="card-text"> @*@booking.BookingComment*@ </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -125,13 +125,13 @@
 
                     @foreach (var bookings in @Model.bookings)
                     {
-                        if (bookings.WeekDays == Models.Booking.DaysOfWeek.Fri)
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Fri)
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@bookings.Guest.Name*@ </h5>
+                                    <h5 class="card-title"> @*@booking.Guest.Name*@ </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@bookings.BookingComment*@ </p>
+                                        <p class="card-text"> @*@booking.BookingComment*@ </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -149,13 +149,13 @@
 
                     @foreach (var bookings in @Model.bookings)
                     {
-                        if (bookings.WeekDays == Models.Booking.DaysOfWeek.Sat)
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Sat)
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@bookings.Guest.Name*@ </h5>
+                                    <h5 class="card-title"> @*@booking.Guest.Name*@ </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@bookings.BookingComment*@ </p>
+                                        <p class="card-text"> @*@booking.BookingComment*@ </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -173,13 +173,13 @@
 
                     @foreach (var bookings in @Model.bookings)
                     {
-                        if (bookings.WeekDays == Models.Booking.DaysOfWeek.Sun)
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Sun)
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@bookings.Guest.Name*@ </h5>
+                                    <h5 class="card-title"> @*@booking.Guest.Name*@ </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@bookings.BookingComment*@ </p>
+                                        <p class="card-text"> @*@booking.BookingComment*@ </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">

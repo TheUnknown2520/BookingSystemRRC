@@ -9,11 +9,6 @@ namespace BookingSystemRRC.Models
 {
     public class TimeSlotBooking
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int TimeSlotId { get; set; }
-
-        
         public enum DaysOfWeek
         {
             Mon,
@@ -24,23 +19,5 @@ namespace BookingSystemRRC.Models
             Sat,
             Sun
         }
-
-        [Required]
-        public DaysOfWeek WeekDays { get; set; }
-        [Required]
-        public DateTime DateTime { get; set; }
-
-        public TimeSlotBooking()
-        {
-            // Default Con
-        }
-
-
-        public TimeSlotBooking(DaysOfWeek weekDays, DateTime dateTime ) 
-        {
-            WeekDays = weekDays;
-            DateTime = dateTime;
-        }
-
     }
 }

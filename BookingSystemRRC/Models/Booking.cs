@@ -7,17 +7,15 @@ using System.Threading.Tasks;
 
 namespace BookingSystemRRC.Models
 {
-    public class Booking : TimeSlotBooking
+    public class Booking
     {
-
-
         //The derived type 'Booking' cannot have the [Key] attribute on property 'BookingNumber' since primary keys may only be declared on the root type.
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BookingNumber { get; set; }
         [Required]
         //[StringLength(2)]
-        public int NumberOfPeople { get ; set; }
+        public int NumberOfPeople { get; set; }
         [Required]
         public int TotalPrice { get; set; }
         [Required]
@@ -27,11 +25,11 @@ namespace BookingSystemRRC.Models
         [Required]
         public string CreatedBy { get; set; }
 
-        [ForeignKey("TimeSlotId")]
-        public int FkTimeSlotId { get; set; }
-        public TimeSlotBooking TimeSlotbookings { get; set; } // navigation property 
+        [Required]
+        public TimeSlotBooking.DaysOfWeek WeekDays { get; set; }
 
-
+        [Required]
+        public DateTime DateTime { get; set; }
 
 
         public Guest Guest { get; set; }
@@ -46,7 +44,7 @@ namespace BookingSystemRRC.Models
             // Default Constructor (takes no parameters)
         }
 
-        public Booking( int numberOfPeople, int totalprice, string type, string bookingComemnt, string createdBy, DaysOfWeek weekDays, DateTime dateTime) : base(weekDays, dateTime)
+        public Booking( int numberOfPeople, int totalprice, string type, string bookingComemnt, string createdBy, TimeSlotBooking.DaysOfWeek weekDays, DateTime dateTime)
         {
             BookingNumber = Nextbookingnumber++;
             NumberOfPeople = numberOfPeople;
@@ -57,5 +55,8 @@ namespace BookingSystemRRC.Models
             WeekDays = weekDays;
             DateTime = dateTime;
         }
+
+
     }
+
 }
