@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingSystemRRC.Migrations
 {
     [DbContext(typeof(BookingDbContext))]
-    [Migration("20210517100829_BookingSystemRRC2")]
-    partial class BookingSystemRRC2
+    [Migration("20210519113038_BookingSystemRRC4")]
+    partial class BookingSystemRRC4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,6 +40,9 @@ namespace BookingSystemRRC.Migrations
                     b.Property<int>("NumberOfPeople")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TimeSlotbookingsTimeSlotId")
+                        .HasColumnType("int");
+
                     b.Property<int>("TotalPrice")
                         .HasColumnType("int");
 
@@ -51,13 +54,17 @@ namespace BookingSystemRRC.Migrations
 
                     b.HasIndex("GuestNumber");
 
+                    b.HasIndex("TimeSlotbookingsTimeSlotId");
+
                     b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("BookingSystemRRC.Models.Guest", b =>
                 {
                     b.Property<int>("GuestNumber")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -85,16 +92,71 @@ namespace BookingSystemRRC.Migrations
                     b.ToTable("Guests");
                 });
 
+            modelBuilder.Entity("BookingSystemRRC.Models.RoomBooking", b =>
+                {
+                    b.Property<int>("RoomId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("RoomId");
+
+                    b.ToTable("EventBookings");
+                });
+
+            modelBuilder.Entity("BookingSystemRRC.Models.TimeSlotBooking", b =>
+                {
+                    b.Property<int>("TimeSlotId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("WeekDays")
+                        .HasColumnType("int");
+
+                    b.HasKey("TimeSlotId");
+
+                    b.ToTable("TimeSlotBookings");
+                });
+
+            modelBuilder.Entity("BookingSystemRRC.Models.User", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("BookingSystemRRC.Models.Booking", b =>
                 {
                     b.HasOne("BookingSystemRRC.Models.Guest", "Guest")
                         .WithMany("Bookings")
                         .HasForeignKey("GuestNumber");
 
+                    b.HasOne("BookingSystemRRC.Models.TimeSlotBooking", "TimeSlotbookings")
+                        .WithMany("Bookings")
+                        .HasForeignKey("TimeSlotbookingsTimeSlotId");
+
                     b.Navigation("Guest");
+
+                    b.Navigation("TimeSlotbookings");
                 });
 
             modelBuilder.Entity("BookingSystemRRC.Models.Guest", b =>
+                {
+                    b.Navigation("Bookings");
+                });
+
+            modelBuilder.Entity("BookingSystemRRC.Models.TimeSlotBooking", b =>
                 {
                     b.Navigation("Bookings");
                 });

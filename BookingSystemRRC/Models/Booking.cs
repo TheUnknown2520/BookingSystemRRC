@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace BookingSystemRRC.Models
 {
-    public class Booking : TimeSlotBooking
+    public class Booking 
     {
 
 
         //The derived type 'Booking' cannot have the [Key] attribute on property 'BookingNumber' since primary keys may only be declared on the root type.
-        [Key]
+
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
         public int BookingNumber { get; set; }
         [Required]
         //[StringLength(2)]
@@ -27,12 +28,11 @@ namespace BookingSystemRRC.Models
         [Required]
         public string CreatedBy { get; set; }
 
-        [ForeignKey("TimeSlotId")]
-        public int FkTimeSlotId { get; set; }
+
+
+        //[ForeignKey("TimeSlotId")]
+        //public int FkTimeSlotId { get; set; }
         public TimeSlotBooking TimeSlotbookings { get; set; } // navigation property 
-
-
-
 
         public Guest Guest { get; set; }
 
@@ -41,12 +41,12 @@ namespace BookingSystemRRC.Models
 
 
 
-        public Booking() : base()
+        public Booking() 
         {
             // Default Constructor (takes no parameters)
         }
 
-        public Booking( int numberOfPeople, int totalprice, string type, string bookingComemnt, string createdBy, DaysOfWeek weekDays, DateTime dateTime) : base(weekDays, dateTime)
+        public Booking( int numberOfPeople, int totalprice, string type, string bookingComemnt, string createdBy) 
         {
             BookingNumber = Nextbookingnumber++;
             NumberOfPeople = numberOfPeople;
@@ -54,8 +54,7 @@ namespace BookingSystemRRC.Models
             Type = type;
             BookingComment = bookingComemnt;
             CreatedBy = createdBy;
-            WeekDays = weekDays;
-            DateTime = dateTime;
+            
         }
     }
 }

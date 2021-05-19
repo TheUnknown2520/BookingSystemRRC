@@ -30,6 +30,9 @@ namespace BookingSystemRRC.Models
         [Required]
         public DateTime DateTime { get; set; }
 
+        public ICollection<Booking> Bookings { get; set; }
+        
+
         public TimeSlotBooking()
         {
             // Default Con

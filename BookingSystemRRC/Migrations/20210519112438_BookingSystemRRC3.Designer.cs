@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingSystemRRC.Migrations
 {
     [DbContext(typeof(BookingDbContext))]
-    [Migration("20210518110040_BookingSystemRRC")]
-    partial class BookingSystemRRC
+    [Migration("20210519112438_BookingSystemRRC3")]
+    partial class BookingSystemRRC3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,9 @@ namespace BookingSystemRRC.Migrations
             modelBuilder.Entity("BookingSystemRRC.Models.Booking", b =>
                 {
                     b.Property<int>("BookingNumber")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("BookingComment")
                         .HasMaxLength(100)
@@ -34,7 +36,7 @@ namespace BookingSystemRRC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("FkTimeSlotId")
+                    b.Property<int?>("GuestNumber")
                         .HasColumnType("int");
 
                     b.Property<int>("NumberOfPeople")
@@ -52,6 +54,8 @@ namespace BookingSystemRRC.Migrations
 
                     b.HasKey("BookingNumber");
 
+                    b.HasIndex("GuestNumber");
+
                     b.HasIndex("TimeSlotbookingsTimeSlotId");
 
                     b.ToTable("Bookings");
@@ -60,7 +64,9 @@ namespace BookingSystemRRC.Migrations
             modelBuilder.Entity("BookingSystemRRC.Models.Guest", b =>
                 {
                     b.Property<int>("GuestNumber")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -88,10 +94,24 @@ namespace BookingSystemRRC.Migrations
                     b.ToTable("Guests");
                 });
 
+            modelBuilder.Entity("BookingSystemRRC.Models.RoomBooking", b =>
+                {
+                    b.Property<int>("RoomId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("RoomId");
+
+                    b.ToTable("EventBookings");
+                });
+
             modelBuilder.Entity("BookingSystemRRC.Models.TimeSlotBooking", b =>
                 {
                     b.Property<int>("TimeSlotId")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
@@ -101,16 +121,46 @@ namespace BookingSystemRRC.Migrations
 
                     b.HasKey("TimeSlotId");
 
-                    b.ToTable("TimeSlotBooking");
+                    b.ToTable("TimeSlotBookings");
+                });
+
+            modelBuilder.Entity("BookingSystemRRC.Models.User", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("BookingSystemRRC.Models.Booking", b =>
                 {
+                    b.HasOne("BookingSystemRRC.Models.Guest", "Guest")
+                        .WithMany("Bookings")
+                        .HasForeignKey("GuestNumber");
+
                     b.HasOne("BookingSystemRRC.Models.TimeSlotBooking", "TimeSlotbookings")
-                        .WithMany()
+                        .WithMany("Bookings")
                         .HasForeignKey("TimeSlotbookingsTimeSlotId");
 
+                    b.Navigation("Guest");
+
                     b.Navigation("TimeSlotbookings");
+                });
+
+            modelBuilder.Entity("BookingSystemRRC.Models.Guest", b =>
+                {
+                    b.Navigation("Bookings");
+                });
+
+            modelBuilder.Entity("BookingSystemRRC.Models.TimeSlotBooking", b =>
+                {
+                    b.Navigation("Bookings");
                 });
 #pragma warning restore 612, 618
         }
