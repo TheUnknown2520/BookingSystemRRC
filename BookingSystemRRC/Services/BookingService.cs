@@ -17,13 +17,13 @@ namespace BookingSystemRRC.Services
         public BookingService(DbGenericService<Booking> dbService)
         {
             DbService = dbService;
-            bookings = MockBooking.GetMockBookings();
-            foreach (Booking booking in bookings)
-            {
-                dbService.AddObjectAsync(booking);
-            }
+            //bookings = MockBooking.GetMockBookings();
+            //foreach (Booking booking in bookings)
+            //{
+            //    dbService.AddObjectAsync(booking);
+            //}
 
-            //bookings = dbService.GetObjectsAsync().Result.ToList();
+            bookings = dbService.GetObjectsAsync().Result.ToList();
         }
 
 
@@ -100,7 +100,7 @@ namespace BookingSystemRRC.Services
                     }
                 }
 
-                DbService.UpdateObjectAsync(booking);
+                    DbService.UpdateObjectAsync(booking);
                
             }
         }
@@ -111,15 +111,15 @@ namespace BookingSystemRRC.Services
         public void MoveBookingLeft(int id)
         {
             Booking booking = GetBooking(id);
-            booking.TimeSlotbookings.WeekDays--;
-
+            booking.WeekDays--;
+            DbService.UpdateObjectAsync(booking);
         }
 
         public void MoveBookingRight(int id)
         {
             Booking booking = GetBooking(id);
-            booking.TimeSlotbookings.WeekDays++;
-
+            booking.WeekDays++;
+            DbService.UpdateObjectAsync(booking);
         }
     }
 }

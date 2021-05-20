@@ -16,6 +16,9 @@ namespace BookingSystemRRC.Pages.InternallySystem
 
         public List<Booking> bookings { get; private set; }
 
+        public Models.Guest Guest { get; set; }
+
+        
 
         public EmployeeCalendarModel(BookingService bookingService)
         {
