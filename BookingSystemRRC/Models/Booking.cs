@@ -39,7 +39,7 @@ namespace BookingSystemRRC.Models
 
 
 
-        public Booking() : base()
+        public Booking() 
         {
             // Default Constructor (takes no parameters)
         }
@@ -52,8 +52,7 @@ namespace BookingSystemRRC.Models
             Type = type;
             BookingComment = bookingComemnt;
             CreatedBy = createdBy;
-            WeekDays = weekDays;
-            DateTime = dateTime;
+            
         }
 
 

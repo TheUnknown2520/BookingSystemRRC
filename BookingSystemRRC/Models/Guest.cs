@@ -10,7 +10,7 @@ namespace BookingSystemRRC.Models
     public class Guest
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)
         public int GuestNumber { get; set; }
         [Required]
         public string Name { get; set; }
