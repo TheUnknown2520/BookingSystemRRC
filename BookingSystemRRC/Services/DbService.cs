@@ -27,6 +27,8 @@ namespace BookingSystemRRC.Services
             }
         }
 
+        
+
         public async Task SaveBooking(List<Booking> bookings)
         {
             using (var context = new BookingDbContext())
@@ -55,6 +57,7 @@ namespace BookingSystemRRC.Services
             }
         }
 
+
         public async Task<List<Booking>> GetBookings()
         {
             using (var context = new BookingDbContext())
@@ -70,5 +73,6 @@ namespace BookingSystemRRC.Services
                 return await context.Guests.ToListAsync();
             }
         }
+
     }
 }

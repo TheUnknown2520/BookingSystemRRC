@@ -22,7 +22,9 @@ namespace BookingSystemRRC.Migrations
             modelBuilder.Entity("BookingSystemRRC.Models.Booking", b =>
                 {
                     b.Property<int>("BookingNumber")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("BookingComment")
                         .HasMaxLength(100)
@@ -32,13 +34,13 @@ namespace BookingSystemRRC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<int?>("GuestNumber")
                         .HasColumnType("int");
 
                     b.Property<int>("NumberOfPeople")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TimeSlotbookingsTimeSlotId")
                         .HasColumnType("int");
 
                     b.Property<int>("TotalPrice")
@@ -47,6 +49,9 @@ namespace BookingSystemRRC.Migrations
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WeekDays")
+                        .HasColumnType("int");
 
                     b.HasKey("BookingNumber");
 
@@ -87,7 +92,7 @@ namespace BookingSystemRRC.Migrations
 
                     b.HasKey("GuestNumber");
 
-                    b.ToTable("Guests");
+                    b.ToTable("Guest");
                 });
 
             modelBuilder.Entity("BookingSystemRRC.Models.RoomBooking", b =>

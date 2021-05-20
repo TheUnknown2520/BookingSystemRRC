@@ -13,11 +13,8 @@ namespace BookingSystemRRC.Models
                 options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BookingDB; Integrated Security=True; Connect Timeout=30; Encrypt=False");
         }
 
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Guest> Guests { get; set; }
-        public DbSet<TimeSlotBooking> TimeSlotBookings { get; set; }
-        public DbSet<RoomBooking> EventBookings { get; set; }
-        public DbSet<User> Users { get; set; }
-
+            public DbSet<Booking> Bookings { get; set; }
+            public DbSet<Guest> Guests { get; set; }
+            public DbSet<Guest> Users { get; set; }
     }
 }
