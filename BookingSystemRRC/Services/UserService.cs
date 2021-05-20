@@ -12,18 +12,19 @@ namespace BookingSystemRRC.Services
     {
         public List<User> Users { get; set; }
 
-        public DbService DbService { get; set; }
-        public UserService(DbService dbService)
+        public DbGenericService<User> DbService { get; set; }
+        public UserService(DbGenericService<User> dbService)
         {
             DbService = dbService;
             Users = MockUser.GetMockUsers();
+            //Users = DbService.GetObjectsAsync().Result.ToList();
             //DbService.SaveUsers(Users);
-            //Users = dbService.GetBookings().Result.ToList();
         }
 
         public void AddUser(User user)
         {
             Users.Add(user);
+            DbService.AddObjectAsync(user);
         }
     }
 }

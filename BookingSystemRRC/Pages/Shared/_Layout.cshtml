@@ -14,7 +14,7 @@
         <img src="/img/RRClogo.png" />
 
         <div class="topnav-right">
-            <a asp-area="" asp-page="/Index">B ANEN</a>
+            <a asp-area="" asp-page="/Index">BANEN</a>
 
             <a asp-area="" asp-page="/Privacy">EVENTS</a>
 
@@ -32,10 +32,22 @@
 
             <a asp-area="" asp-page="/BookingRRC/BookingAcceptance">INFO</a>
 
+            <a asp-area="" asp-page="/Admin/ManageUser">ADMINISTRER BRUGERE</a>
+
+            <a asp-area="" asp-page="/Privacy"><strong>LOG IND</strong></a>
         </div>
     </div>
+    @*<div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <a href="#">Log ind</a>
+            <a href="#">Brugere</a>
+        </div>
+    </div>*@
+  
 
-    <div class="container">
+
+<div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

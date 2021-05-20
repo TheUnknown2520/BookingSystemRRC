@@ -11,7 +11,7 @@ namespace BookingSystemRRC.MockData
     public class MockTimeSlot
     {
 
-        private List<TimeSlotGokart> timeSlots = new List<TimeSlotGokart>();
+        private List<TimeSlotBooking> timeSlots = new List<TimeSlotBooking>();
         
         public MockTimeSlot()
         {
@@ -23,7 +23,7 @@ namespace BookingSystemRRC.MockData
             var startTimeGen = GetDateTime(2021, 05, 1, 09);
         }
 
-        public List<TimeSlotGokart> GetMockTimeSlots()
+        public List<TimeSlotBooking> GetMockTimeSlots()
         {
 
             return timeSlots;
