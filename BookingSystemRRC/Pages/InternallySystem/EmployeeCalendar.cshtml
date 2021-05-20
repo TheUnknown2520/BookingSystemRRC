@@ -1,8 +1,7 @@
 ﻿@page "{handler?}"
 @model BookingSystemRRC.Pages.InternallySystem.EmployeeCalendarModel
 @{
-    string tempTextTitle;
-    string tempTextDescription;
+    
 
     <div class="calendar">
 
@@ -34,9 +33,9 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@Models.Guest.*@</h5>
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@booking.BookingComment*@</p>
+                                        <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -57,9 +56,9 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@booking.Guest.Name*@ </h5>
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@booking.BookingComment*@ </p>
+                                        <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -81,9 +80,9 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@booking.Guest.Name*@ </h5>
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@booking.BookingComment*@ </p>
+                                        <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -105,9 +104,9 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@booking.Guest.Name*@ </h5>
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@booking.BookingComment*@ </p>
+                                        <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -129,9 +128,9 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@booking.Guest.Name*@ </h5>
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@booking.BookingComment*@ </p>
+                                        <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -153,9 +152,9 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@booking.Guest.Name*@ </h5>
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@booking.BookingComment*@ </p>
+                                        <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -177,9 +176,9 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @*@booking.Guest.Name*@ </h5>
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
                                     <div class="card-body">
-                                        <p class="card-text"> @*@booking.BookingComment*@ </p>
+                                        <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
