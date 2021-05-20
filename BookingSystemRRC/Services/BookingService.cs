@@ -17,13 +17,13 @@ namespace BookingSystemRRC.Services
         public BookingService(DbGenericService<Booking> dbService)
         {
             DbService = dbService;
-            bookings = MockBooking.GetMockBookings();
-            foreach (Booking booking in bookings)
-            {
-                dbService.AddObjectAsync(booking);
-            }
+            //bookings = MockBooking.GetMockBookings();
+            //foreach (Booking booking in bookings)
+            //{
+            //    dbService.AddObjectAsync(booking);
+            //}
 
-            //bookings = dbService.GetObjectsAsync().Result.ToList();
+            bookings = dbService.GetObjectsAsync().Result.ToList();
         }
 
 

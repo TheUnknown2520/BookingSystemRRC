@@ -10,7 +10,7 @@ namespace BookingSystemRRC.Models
     public class Guest
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int GuestNumber { get; set; }
         [Required]
         public string Name { get; set; }
@@ -20,8 +20,8 @@ namespace BookingSystemRRC.Models
         public int PhoneNumber { get; set; }
         public string Nationality { get; set; }
         public string GuestComment { get; set; }
-        [Required]
-        public string CreatedBy { get; set; }
+        //[Required]
+        //public string CreatedBy { get; set; }
         public ICollection<Booking> Bookings { get; set; }
 
 
@@ -32,7 +32,7 @@ namespace BookingSystemRRC.Models
             // Default Constructor (takes no parameters)
         }
 
-        public Guest( string name, string email, int phoneNumber, string nationality, string guestComment, string createdBy)
+        public Guest( string name, string email, int phoneNumber, string nationality, string guestComment /*string createdBy*/)
         {
             GuestNumber = NextGuestNumber++;
             Name = name;
@@ -40,7 +40,7 @@ namespace BookingSystemRRC.Models
             PhoneNumber = phoneNumber;
             Nationality = nationality;
             GuestComment = guestComment;
-            CreatedBy = createdBy;
+            //CreatedBy = createdBy;
         }
 
     }

@@ -26,7 +26,7 @@
             <div class="row row-cols-4">
 
                 <div class="col-3">
-                    <h2 style="text-align:center">Monday</h2>
+                    <h4 style="text-align:center">Mandag</h4>
                     @foreach (var bookings in @Model.bookings)
                     {
                         if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Mon)
@@ -34,21 +34,21 @@
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
                                     <h5 class="card-title"> @bookings.BookingNumber </h5>
-                                    <div class="card-body">
+                                        <div class="card-body">
                                         <p class="card-text"> @bookings.BookingComment </p>
+                                        </div>
+                                </div>
+                                    <div class="card-footer">
+                                        <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
+                                        <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
                                     </div>
-                                </div>
-                                <div class="card-footer">
-                                    <a class="btn " type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
-                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
-                                </div>
                             </div>
                         }
                     }
                 </div>
 
                 <div class="col-3">
-                    <h2 style="text-align: center">Tuesday</h2>
+                    <h4 style="text-align: center">Tirsdag</h4>
 
                     @foreach (var bookings in @Model.bookings)
                     {
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="col-3">
-                    <h2 style="text-align: center">Wednesday</h2>
+                    <h4 style="text-align: center">Onsdag</h4>
 
                     @foreach (var bookings in @Model.bookings)
                     {
@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="col-3">
-                    <h2 style="text-align: center">Thursday</h2>
+                    <h4 style="text-align: center">Torsdag</h4>
 
                     @foreach (var bookings in @Model.bookings)
                     {
@@ -120,7 +120,7 @@
                 </div>
 
                 <div class="col-3">
-                    <h2 style="text-align: center">Friday</h2>
+                    <h4 style="text-align: center">Fredag</h4>
 
                     @foreach (var bookings in @Model.bookings)
                     {
@@ -144,7 +144,7 @@
                 </div>
 
                 <div class="col-3">
-                    <h2 style="text-align: center">Saturday</h2>
+                    <h4 style="text-align: center">Lørdag</h4>
 
                     @foreach (var bookings in @Model.bookings)
                     {
@@ -158,7 +158,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-left"></i></a>
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa-arrow-circle-left"></i></a>
                                     <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
                                     <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
                                 </div>
@@ -168,7 +168,7 @@
                 </div>
 
                 <div class="col-3">
-                    <h2 style="text-align: center">Sunday</h2>
+                    <h4 style="text-align: center">Søndag</h4>
 
                     @foreach (var bookings in @Model.bookings)
                     {
