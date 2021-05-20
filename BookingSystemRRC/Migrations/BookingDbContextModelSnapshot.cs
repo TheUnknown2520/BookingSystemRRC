@@ -94,7 +94,6 @@ namespace BookingSystemRRC.Migrations
             modelBuilder.Entity("BookingSystemRRC.Models.User", b =>
                 {
                     b.Property<string>("Username")
-                        .ValueGeneratedOnAdd()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 

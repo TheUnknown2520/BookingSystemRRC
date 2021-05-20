@@ -16,9 +16,9 @@ namespace BookingSystemRRC.Pages.InternallySystem
 
         public List<Booking> bookings { get; private set; }
 
-        public List<Guest> guests { get; set; }
+        public Models.Guest Guest { get; set; }
 
-        public Guest Guest { get; set; }
+        
 
         public EmployeeCalendarModel(BookingService bookingService)
         {
@@ -50,7 +50,7 @@ namespace BookingSystemRRC.Pages.InternallySystem
             {
                 return Page();
             }
-            await bookingService.CreateBookingAsync(new Booking(10, 200, "", "fadøl", "Christopher", TimeSlotBooking.DaysOfWeek.Fri, DateTime.Now));
+            await bookingService.CreateBookingAsync(new Booking(10, 200, "", "fadøl", "Christopher", TimeSlotBooking.DaysOfWeek.Mon, DateTime.Now));
 
             return RedirectToPage("EmployeeCalendar");
         }
