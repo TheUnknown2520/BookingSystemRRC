@@ -34,9 +34,7 @@ namespace BookingSystemRRC
             //services.AddSingleton<DbService, DbService>();
             services.AddSingleton<DbGenericService<Booking>, DbGenericService<Booking>>();
             services.AddSingleton<DbGenericService<Guest>, DbGenericService<Guest>>();
-            services.AddSingleton<DbGenericService<TimeSlotBooking>, DbGenericService<TimeSlotBooking>>();
-
-
+            services.AddSingleton<DbGenericService<User>, DbGenericService<User>>();
 
 
         }
