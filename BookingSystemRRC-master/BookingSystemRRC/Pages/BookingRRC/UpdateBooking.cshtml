@@ -1,0 +1,34 @@
+﻿@page "{id:int}"
+@model BookingSystemRRC.Pages.BookingRRC.UpdateBookingModel
+@{
+}
+
+<h1 class="text-white"> Rediger booking </h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+
+
+            <div class="form-group">
+                <label asp-for="@Model.Booking.CreatedBy" class="control-label text-white" >Lavet af</label>
+                <input asp-for="@Model.Booking.CreatedBy" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Booking.NumberOfPeople" class="control-label text-white"> Antal personer </label>
+                <input asp-for="@Model.Booking.NumberOfPeople" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Booking.BookingComment" class="control-label text-white"> Komentar</label>
+                <input asp-for="@Model.Booking.BookingComment" class="form-control" />
+            </div>
+
+            
+            <button type="submit" class="btn btn-primary"> opdater </button>
+               
+            
+        </form>
+    </div>
+</div>

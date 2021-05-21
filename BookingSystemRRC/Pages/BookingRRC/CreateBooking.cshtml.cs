@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -13,10 +13,11 @@ namespace BookingSystemRRC.Pages.BookingRRC
     {
 
 
-        // For at kunne bruge Booking Service og Listen af gæster, kræver det en reference til Services.BookingService.cs
+        // For at kunne bruge Booking Service og Listen af gï¿½ster, krï¿½ver det en reference til Services.BookingService.cs
         private BookingService bookingService;
+        private GuestService guestService;
         private List<Models.Booking> bookings;
-        private List<Models.Guest> Guests;
+        private List<Models.Guest> guests;
 
         [BindProperty]
         public Models.Booking Booking { get; set; } = new Models.Booking();
@@ -27,9 +28,12 @@ namespace BookingSystemRRC.Pages.BookingRRC
         public string Type { get; set; }
 
         public CreateBookingModel(BookingService bookingService)
+        public CreateBookingModel(BookingService bookingService, GuestService guestService)
         {
             this.bookingService = bookingService;
+            this.guestService = guestService;
             bookings = bookingService.GetBookings().ToList();
+            guests = guestService.GetGuests().ToList();
         }
 
         public IActionResult OnGet()
@@ -44,6 +48,7 @@ namespace BookingSystemRRC.Pages.BookingRRC
                 return BadRequest(ModelState);
             }
            await bookingService.CreateBookingAsync(Booking);
+            await guestService.CreateGuestAsync(Guest);
             return RedirectToPage("/BookingRRC/BookingAcceptance");
         }
     }

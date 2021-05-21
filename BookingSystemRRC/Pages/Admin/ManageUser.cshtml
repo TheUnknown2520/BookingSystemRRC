@@ -1,0 +1,29 @@
+﻿@page
+@model BookingSystemRRC.Pages.Admin.ManageUserModel
+@{
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!DOCTYPE html>
+
+    <h1>ADMINISTRER BRUGERE</h1>
+    <table style="width: 100%">
+        <tr>
+            <th>Username</th>
+        </tr>
+        @foreach (var user in Model.users)
+        {
+            <tr>
+                <td>@user.Username</td>
+                @*<td>
+
+                        <button class="btn"><a class="Deletebtn" asp-route-Mail="@Jesper.Mail" asp-page="/Admin/DeleteUser"><i class="fa fa-trash"></i></a></button>
+                        <button class="btn"><a class="Editbtn" asp-route-Mail="@Jesper.Mail" asp-page="/Admin/EditUser"><i class="fa fa-edit"></i></a></button>
+
+
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+}

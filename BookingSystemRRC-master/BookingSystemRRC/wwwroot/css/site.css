@@ -1,0 +1,246 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/*#region Default*/
+
+body {
+    background-image: url("../img/Gokart.jpg");
+    background-size: cover;
+}
+
+
+
+html 
+{
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html 
+    {
+        font-size: 16px;
+    }
+}
+
+.border-top 
+{
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom 
+{
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow 
+{
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy 
+{
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+html 
+{
+    position: relative;
+    min-height: 100%;
+}
+
+body 
+{
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #1f1f1f;
+}
+
+
+.footer 
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+
+
+/*#endregion Default*/
+
+/*#region Calendar*/
+
+    thead th 
+    {
+        text-align: center;
+        width: 100%;
+    }
+
+
+    header h1 
+    {
+        font-size: 1.25rem;
+        text-align: center;
+        font-weight: normal;
+    }
+
+tbody 
+{
+    position: relative;
+    top: 100px;
+}
+
+table 
+{
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+
+
+.headcol 
+{
+    width: 60px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0.25rem 0;
+    text-align: center;
+    position: relative;
+    top: 8px;
+    border-bottom: 1px solid transparent;
+
+    border:0;
+}
+
+thead th 
+{
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(178, 110, 14);
+    padding: 1rem;
+}
+
+thead 
+{
+    z-index: 2;
+    background: white;
+    border-bottom: 2px solid #ddd;
+}
+
+tr, tr td 
+{
+    height: 20px;
+}
+
+td 
+{
+    text-align: center;
+}
+
+tr td 
+{
+    border-top: 2px dashed;
+    border-right: 3px solid;
+    border-left: 3px solid;
+    border-bottom: 2px dashed;
+    padding: 0;
+}
+
+tbody tr td 
+{
+    position: relative;
+    vertical-align: top;
+    height: 40px;
+    padding: 0.25rem 0.25rem 0 0.25rem;
+    width: auto;
+}
+
+li {
+    float: left;
+    width: 50%; /* Split width appropriately */
+}
+
+.calendarBTN {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/*#endregion Calendar*/
+
+/*input Create booking*/
+
+.input-fields .input {
+    margin: 10px 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid #ff540a;
+    padding: 10px; 
+    color: #ff540a;
+    width: 100%; 
+    
+}
+/*#region Navigation-bar*/
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #171717;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #ff540a;
+        color: black;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a:active {
+        background-color: #ff540a;
+        color: white;
+    }
+
+.topnav img {
+    width: 6%;
+    height: auto;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+    float: right;
+}
+
+
+/* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
+@media screen and (max-width: 500px) {
+    .navbar a {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: left; /* If you want the text to be left-aligned on small screens */
+    }
+}
+
+
+a {
+    color: #0366d6;
+}
+
+/*#endregion Navigation-bar*/

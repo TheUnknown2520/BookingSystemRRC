@@ -1,0 +1,200 @@
+﻿@page "{handler?}"
+@model BookingSystemRRC.Pages.InternallySystem.EmployeeCalendarModel
+@{
+    
+
+    <div class="calendar">
+
+        <header>
+
+            <div>
+                <nav>
+                    <button> Create Customer </button>
+                    <a class="CalendarBTN" type="button" asp-page="/BookingRRC/CreateBooking"> Create Booking </a>
+                    <button> Check in </button>
+                </nav>
+            </div>
+
+            <div class="calendarTitle">
+
+                
+            </div>
+
+        </header>
+
+        <div class="container">
+            <div class="row row-cols-4">
+
+                <div class="col-3">
+                    <h4 style="text-align:center">Mandag</h4>
+                    @foreach (var bookings in @Model.bookings)
+                    {
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Mon)
+                        {
+                            <div class="card mb-3" style="max-width: 20rem">
+                                <div class="card-header">
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
+                                        <div class="card-body">
+                                        <p class="card-text"> @bookings.BookingComment </p>
+                                        </div>
+                                </div>
+                                    <div class="card-footer">
+                                        <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
+                                        <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                    </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="col-3">
+                    <h4 style="text-align: center">Tirsdag</h4>
+
+                    @foreach (var bookings in @Model.bookings)
+                    {
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Tue)
+                        {
+                            <div class="card mb-3" style="max-width: 20rem">
+                                <div class="card-header">
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
+                                    <div class="card-body">
+                                        <p class="card-text"> @bookings.BookingComment </p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-left"></i></a>
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="col-3">
+                    <h4 style="text-align: center">Onsdag</h4>
+
+                    @foreach (var bookings in @Model.bookings)
+                    {
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Wed)
+                        {
+                            <div class="card mb-3" style="max-width: 20rem">
+                                <div class="card-header">
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
+                                    <div class="card-body">
+                                        <p class="card-text"> @bookings.BookingComment </p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-left"></i></a>
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="col-3">
+                    <h4 style="text-align: center">Torsdag</h4>
+
+                    @foreach (var bookings in @Model.bookings)
+                    {
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Thu)
+                        {
+                            <div class="card mb-3" style="max-width: 20rem">
+                                <div class="card-header">
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
+                                    <div class="card-body">
+                                        <p class="card-text"> @bookings.BookingComment </p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-left"></i></a>
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="col-3">
+                    <h4 style="text-align: center">Fredag</h4>
+
+                    @foreach (var bookings in @Model.bookings)
+                    {
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Fri)
+                        {
+                            <div class="card mb-3" style="max-width: 20rem">
+                                <div class="card-header">
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
+                                    <div class="card-body">
+                                        <p class="card-text"> @bookings.BookingComment </p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-left"></i></a>
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="col-3">
+                    <h4 style="text-align: center">Lørdag</h4>
+
+                    @foreach (var bookings in @Model.bookings)
+                    {
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Sat)
+                        {
+                            <div class="card mb-3" style="max-width: 20rem">
+                                <div class="card-header">
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
+                                    <div class="card-body">
+                                        <p class="card-text"> @bookings.BookingComment </p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa-arrow-circle-left"></i></a>
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="col-3">
+                    <h4 style="text-align: center">Søndag</h4>
+
+                    @foreach (var bookings in @Model.bookings)
+                    {
+                        if (bookings.WeekDays == Models.TimeSlotBooking.DaysOfWeek.Sun)
+                        {
+                            <div class="card mb-3" style="max-width: 20rem">
+                                <div class="card-header">
+                                    <h5 class="card-title"> @bookings.BookingNumber </h5>
+                                    <div class="card-body">
+                                        <p class="card-text"> @bookings.BookingComment </p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-left"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+

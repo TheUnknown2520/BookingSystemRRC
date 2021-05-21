@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading.Tasks;
 
 namespace BookingSystemRRC.Models
@@ -13,19 +11,24 @@ namespace BookingSystemRRC.Models
     {
         [Key]
         [StringLength(20)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Username { get; set; }
         [Required]
+        [StringLength(20)]
         public string Password { get; set; }
 
-        public User()
-        {
-
-        }
+        
         
         public User(string username, string password)
         {
             Username = username;
             Password = password;
         }
+
+        public User()
+        {
+
+        }
+
     }
 }

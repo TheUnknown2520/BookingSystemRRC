@@ -40,7 +40,7 @@ namespace BookingSystemRRC.Services
             return null;
         }
 
-
+        // retuner hele listen med alle bookings
         public IEnumerable<Booking> GetBookings()
         {
             return bookings;
@@ -57,7 +57,7 @@ namespace BookingSystemRRC.Services
                 await DbService.AddObjectAsync(booking);
             }
         }
-        // retuner hele listen med alle bookings
+      
         
 
         
@@ -84,7 +84,7 @@ namespace BookingSystemRRC.Services
         
         //Opdaterer/redigerer en booking
         // b. = nye booking
-        public void UpdateBooking(Booking booking)
+        public async Task UpdateBookingAsync(Booking booking)
         {
             if(booking != null)
             {
@@ -100,7 +100,7 @@ namespace BookingSystemRRC.Services
                     }
                 }
 
-                    DbService.UpdateObjectAsync(booking);
+                   await DbService.UpdateObjectAsync(booking);
                
             }
         }

@@ -1,5 +1,9 @@
 ﻿@page
 @model BookingSystemRRC.Pages.BookingRRC.CreateBookingModel
+@using BookingSystemRRC.Models
+
+
+
 @{
     <h5> Opret en booking </h5>
 
@@ -21,6 +25,22 @@
                         <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
                     </div>
 
+                    <div class="form-group">
+
+                     
+
+                        <select name="weekDays" class="form-group" id="WeekDays" >
+                            <option >vælg dag</option>
+                            <option>Mandag</option>
+                            <option>Tirsdag</option>
+                            <option>onsdagg</option>
+                            <option>Torsdag</option>
+                            <option>Fredag</option>
+                            <option>Lørdag</option>
+                            <option>Søndag</option>
+                        </select>
+
+                    </div>
 
                     <label for="events"> Events: </label>
                     <select class="form-control" asp-for="Booking.Type">
@@ -75,3 +95,4 @@
         </div>
     </div>
 }
+
