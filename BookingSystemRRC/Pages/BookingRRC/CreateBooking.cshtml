@@ -1,7 +1,12 @@
 ﻿@page
 @model BookingSystemRRC.Pages.BookingRRC.CreateBookingModel
+@using BookingSystemRRC.Models
+
+
+
 @{
 
+ 
     <h5> Opret en booking </h5>
 
     <div class="row">
@@ -9,27 +14,43 @@
             <form method="post">
                 <div class="input-fields">
 
-                    <div>
+                    <div class="form-group">
                         @*<label asp-for="@Model.Guest.Name" class="control-label "><b class="text-white"> Name</b></label>*@
                         <input asp-for="@Model.Guest.Name" class="input" placeholder=" Navn" />
                         <span asp-validation-for="@Model.Guest.Name" class="text-danger"></span>
                     </div>
 
 
-                    <div>
+                    <div class="form-group">
                         @*<label asp-for="@Model.Guest.Email" class="control-label "><b class="text-white"> Email</b></label>*@
                         <input asp-for="@Model.Guest.Email" class="input" placeholder=" Email" />
                         <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
                     </div>
 
+                    <div class="form-group">
 
-                    <div>
-                        <input asp-for="@Model.Booking.Type" class="dropdown-item" placeholder=" Type" />
+                     
+
+                        <select name="weekDays" class="form-group" id="WeekDays" >
+                            <option >vælg dag</option>
+                            <option>Mandag</option>
+                            <option>Tirsdag</option>
+                            <option>onsdagg</option>
+                            <option>Torsdag</option>
+                            <option>Fredag</option>
+                            <option>Lørdag</option>
+                            <option>Søndag</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+                        <input asp-for="@Model.Booking.Type" class="input" placeholder="Type" />
                         <span asp-validation-for="@Model.Booking.Type" class="text-danger"></span>
                     </div>
 
 
-                    <div>
+                    <div class="form-group">
                         @*<label asp-for="@Model.Guest.PhoneNumber" class="control-label "><b class="text-white">Telefon nummer</b></label>*@
                         <input asp-for="@Model.Guest.PhoneNumber" class="input" placeholder="Nummer" />
                         <span asp-validation-for="@Model.Guest.PhoneNumber" class="text-danger"></span>
@@ -44,7 +65,7 @@
 
 
                     <div class="form-group">
-                        <label asp-for="@Model.Booking.CreatedBy" class="control-label ">@*<b class="text-white">Opretet af</b>*@</label>
+                        @*<label asp-for="@Model.Booking.CreatedBy" class="control-label "><b class="text-white">Opretet af</b></label>*@
                         <input asp-for="@Model.Booking.CreatedBy" class="input" placeholder=" opretet af" />
                         <span asp-validation-for="@Model.Booking.CreatedBy" class="text-danger"></span>
                     </div>
@@ -68,11 +89,20 @@
                     <div class="form-group">
                         <input type="submit" value="Create" class="btn btn-primary" />
                     </div>
-</form>
+
+                    <div>
+                        <a asp-page="/BookingRRC/Acceptance"> tilbage </a>
+                    </div>
+                </div>
+            </form>
+
         </div>
+       
 
     </div>
-    <div>
-        <a asp-page="/BookingRRC/Acceptance"> tilbage </a>
-    </div>
+   
+
+
+   
 }
+

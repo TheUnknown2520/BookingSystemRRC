@@ -27,14 +27,14 @@ namespace BookingSystemRRC.Pages.BookingRRC
 
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                return BadRequest(ModelState);
             }
 
-            bookingService.UpdateBooking(Booking);
+            await bookingService.UpdateBookingAsync(Booking);
             return RedirectToPage("/BookingRRC/BookingAcceptance");
         }
      

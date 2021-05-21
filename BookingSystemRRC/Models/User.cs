@@ -11,6 +11,7 @@ namespace BookingSystemRRC.Models
     {
         [Key]
         [StringLength(20)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Username { get; set; }
         [Required]
         [StringLength(20)]
