@@ -15,36 +15,53 @@
         <img src="/img/RRClogo.png" />
 
         <div class="topnav-right">
-            <a asp-area="" asp-page="/Index">BANEN</a>
 
-            <a asp-area="" asp-page="/Privacy">EVENTS</a>
 
-            <a asp-area="" asp-page="/Privacy">BOOKING</a>
 
-            <a asp-area="" asp-page="/Privacy">RACING</a>
 
-            <a asp-area="" asp-page="/InternallySystem/EmployeeCalendar">BOOKING</a>
 
-            <a asp-area="" asp-page="/Privacy">BLÅ MANDAG</a>
+            @{
+                if (Context.User.Identity.Name == null)
+                {
+                    <a asp-area="" asp-page="/Index">BANEN</a>
 
-            <a asp-area="" asp-page="/Privacy">SAMARBEJDSPARTNERE</a>
+                    <a asp-area="" asp-page="/Privacy">EVENTS</a>
 
-            <a asp-area="" asp-page="/Privacy">ROSKILDE RACING SCHOOL</a>
+                    <a asp-area="" asp-page="/Privacy">BOOKING</a>
 
-            <a asp-area="" asp-page="/BookingRRC/BookingAcceptance">INFO</a>
+                    <a asp-area="" asp-page="/Privacy">RACING</a>
 
-            <a asp-area="" asp-page="/Admin/ManageUser">ADMINISTRER BRUGERE</a>
+                    <a asp-area="" asp-page="/Privacy">BLÅ MANDAG</a>
 
-            <a asp-area="" asp-page="/Privacy"><strong>LOG IND</strong></a>
-        </div>
+                    <a asp-area="" asp-page="/Privacy">SAMARBEJDSPARTNERE</a>
+
+                    <a asp-area="" asp-page="/Privacy">ROSKILDE RACING SCHOOL</a>
+
+                    <a asp-area="" asp-page="/Privacy">INFO</a>
+
+                    <a asp-area="" asp-page="/LogInSystem/LogIn"><strong>LOG IND</strong></a>
+                }
+                else
+                {
+                    <a asp-area="" asp-page="/InternallySystem/EmployeeCalendar">BOOKING</a>
+
+                    <a asp-area="" asp-page="/BookingRRC/BookingAcceptance">ONLINE BOOKING</a>
+
+
+                        if (Context.User.Identity != null && Context.User.Identity.Name == "Jesper")
+                        {
+                            <a asp-area="" asp-page="/Admin/ManageUser">ADMINISTRER BRUGERE</a>
+                        }
+
+
+                    <a asp-area="" asp-page="/LogInSystem/LogOut"><strong>LOG UD</strong></a>
+
+                }
+            }
+
+            </div>
     </div>
-    @*<div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-            <a href="#">Log ind</a>
-            <a href="#">Brugere</a>
-        </div>
-    </div>*@
+  
   
 
 

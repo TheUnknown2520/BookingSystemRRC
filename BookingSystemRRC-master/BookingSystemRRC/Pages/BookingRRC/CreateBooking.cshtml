@@ -1,0 +1,78 @@
+﻿@page
+@model BookingSystemRRC.Pages.BookingRRC.CreateBookingModel
+@{
+
+    <h5> Opret en booking </h5>
+
+    <div class="row">
+        <div class="col-3">
+            <form method="post">
+                <div class="input-fields">
+
+                    <div>
+                        @*<label asp-for="@Model.Guest.Name" class="control-label "><b class="text-white"> Name</b></label>*@
+                        <input asp-for="@Model.Guest.Name" class="input" placeholder=" Navn" />
+                        <span asp-validation-for="@Model.Guest.Name" class="text-danger"></span>
+                    </div>
+
+
+                    <div>
+                        @*<label asp-for="@Model.Guest.Email" class="control-label "><b class="text-white"> Email</b></label>*@
+                        <input asp-for="@Model.Guest.Email" class="input" placeholder=" Email" />
+                        <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
+                    </div>
+
+
+                    <div>
+                        <input asp-for="@Model.Booking.Type" class="dropdown-item" placeholder=" Type" />
+                        <span asp-validation-for="@Model.Booking.Type" class="text-danger"></span>
+                    </div>
+
+
+                    <div>
+                        @*<label asp-for="@Model.Guest.PhoneNumber" class="control-label "><b class="text-white">Telefon nummer</b></label>*@
+                        <input asp-for="@Model.Guest.PhoneNumber" class="input" placeholder="Nummer" />
+                        <span asp-validation-for="@Model.Guest.PhoneNumber" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        @*<label asp-for="@Model.Guest.Nationality" class="control-label "><b class="text-white">land</b></label>*@
+                        <input asp-for="@Model.Guest.Nationality" class="input" placeholder="land" />
+                        <span asp-validation-for="@Model.Guest.Nationality" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="@Model.Booking.CreatedBy" class="control-label ">@*<b class="text-white">Opretet af</b>*@</label>
+                        <input asp-for="@Model.Booking.CreatedBy" class="input" placeholder=" opretet af" />
+                        <span asp-validation-for="@Model.Booking.CreatedBy" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        @*<label asp-for="@Model.Booking.NumberOfPeople" class="control-label "><b class="text-white">Antal personer</b></label>*@
+                        <input asp-for="@Model.Booking.NumberOfPeople" class="input" placeholder="Antal personer" />
+                        <span asp-validation-for="@Model.Booking.NumberOfPeople" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        @*<label asp-for="@Model.Booking.BookingComment" class="control-label "><b class="text-white">kommentar</b></label>*@
+                        <input asp-for="@Model.Booking.BookingComment" class="input" placeholder="Skriv en komentar her" />
+                        <span asp-validation-for="@Model.Booking.BookingComment" class="text-danger"></span>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+</form>
+        </div>
+
+    </div>
+    <div>
+        <a asp-page="/BookingRRC/Acceptance"> tilbage </a>
+    </div>
+}

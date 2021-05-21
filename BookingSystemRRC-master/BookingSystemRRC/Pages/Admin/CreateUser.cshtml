@@ -1,0 +1,28 @@
+﻿@page
+@model BookingSystemRRC.Pages.Admin.CreateUserModel
+@{
+}
+<h1>OPRET BRUGER</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" style="border:1px solid #ccc">
+            <div class="container">
+                <h2>Ny bruger</h2>
+                <p>Udfyld formen for at oprette en ny bruger.</p>
+                
+
+                <label for="username"><b>Brugernavn</b></label>
+                <br />
+                <input type="text" placeholder="Indtast et brugernavn" name="Username" required><br />
+
+                <label for="psw"><b>Adgangskode</b></label>
+                <br />
+                <input type="password" placeholder="Indtast en adgangskode" name="Password" required><br />
+                <br />
+                <div class="clearfix">
+                    <button type="submit" class="signupbtn">Opret bruger</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
