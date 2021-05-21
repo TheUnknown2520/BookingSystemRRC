@@ -176,10 +176,31 @@ li {
 
 /*input Create booking*/
 
-.input-fields .input {
-    
+.texted {
+    color: #ff540a;
+}
+
+input, select, textarea {
+    width: 195px;
+    border: 1px solid #ff540a;
+    -ms-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+
+textarea {
+    overflow-y: scroll;
+    resize: none;
     
 }
+
+.label {
+    color: #ff540a;
+    display: inline-block;
+    text-align: right;
+}
+
 /*#region Navigation-bar*/
 
 /* Add a black background color to the top navigation */
@@ -190,20 +211,20 @@ li {
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
 
     /* Change the color of links on hover */
-    .topnav a:hover {
-        background-color: #ff540a;
-        color: black;
-    }
+        .topnav a:hover {
+            background-color: #ff540a;
+            color: black;
+        }
 
     /* Add a color to the active/current link */
     .topnav a:active {
