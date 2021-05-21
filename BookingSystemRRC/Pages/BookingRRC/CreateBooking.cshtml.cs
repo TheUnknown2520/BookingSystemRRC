@@ -19,9 +19,12 @@ namespace BookingSystemRRC.Pages.BookingRRC
         private List<Models.Guest> Guests;
 
         [BindProperty]
-        public Models.Booking Booking { get; set; }
+        public Models.Booking Booking { get; set; } = new Models.Booking();
         [BindProperty]
         public Models.Guest Guest { get; set; }
+
+        [BindProperty]
+        public string Type { get; set; }
 
         public CreateBookingModel(BookingService bookingService)
         {
