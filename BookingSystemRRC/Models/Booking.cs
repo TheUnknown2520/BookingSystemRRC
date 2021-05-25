@@ -52,10 +52,6 @@ namespace BookingSystemRRC.Models
             Type = type;
             BookingComment = bookingComemnt;
             CreatedBy = createdBy;
-            
         }
-
-
     }
-
 }

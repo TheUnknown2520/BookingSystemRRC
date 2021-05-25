@@ -5,33 +5,32 @@
 
 
 @{
+    
 
- 
-    <h5> Opret en booking </h5>
-
-    <div class="row">
+    <div class="container">
+        <h2 class="label"> Opret en booking </h2>
         <div class="col-3">
             <form method="post">
                 <div class="input-fields">
 
-                    <div class="form-group">
-                        @*<label asp-for="@Model.Guest.Name" class="control-label "><b class="text-white"> Name</b></label>*@
-                        <input asp-for="@Model.Guest.Name" class="input" placeholder=" Navn" />
+                    <div>
+                        <label class="label">Navn: </label>
+                        <input asp-for="@Model.Guest.Name" class="input" />
                         <span asp-validation-for="@Model.Guest.Name" class="text-danger"></span>
                     </div>
 
 
-                    <div class="form-group">
-                        @*<label asp-for="@Model.Guest.Email" class="control-label "><b class="text-white"> Email</b></label>*@
-                        <input asp-for="@Model.Guest.Email" class="input" placeholder=" Email" />
+                    <div>
+                        <label class="label">Email: </label>
+                        <input asp-for="@Model.Guest.Email" class="input" />
                         <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
 
-                     
 
-                        <select name="weekDays" class="form-group" id="WeekDays" >
+
+                        @*<select name="weekDays" class="form-group" id="WeekDays" >
                             <option >vælg dag</option>
                             <option>Mandag</option>
                             <option>Tirsdag</option>
@@ -40,69 +39,61 @@
                             <option>Fredag</option>
                             <option>Lørdag</option>
                             <option>Søndag</option>
-                        </select>
+                        </select>*@
 
                     </div>
 
-                    <div class="form-group">
-                        <input asp-for="@Model.Booking.Type" class="input" placeholder="Type" />
-                        <span asp-validation-for="@Model.Booking.Type" class="text-danger"></span>
-                    </div>
+                    <label class="label" for="events">Events: </label>
+                    <select class="label" asp-for="Booking.Type">
+                        @foreach (var booking in Enum.GetNames(typeof(Models.BookingEvents)))
+                        {
+                            <option value="@booking">@booking</option>
+                        }
+                    </select>
 
 
-                    <div class="form-group">
-                        @*<label asp-for="@Model.Guest.PhoneNumber" class="control-label "><b class="text-white">Telefon nummer</b></label>*@
-                        <input asp-for="@Model.Guest.PhoneNumber" class="input" placeholder="Nummer" />
+                    <div>
+                        <label class="label" >Nummer: </label>
+                        <input asp-for="@Model.Guest.PhoneNumber" class="input" />
                         <span asp-validation-for="@Model.Guest.PhoneNumber" class="text-danger"></span>
                     </div>
 
 
-                    <div class="form-group">
-                        @*<label asp-for="@Model.Guest.Nationality" class="control-label "><b class="text-white">land</b></label>*@
-                        <input asp-for="@Model.Guest.Nationality" class="input" placeholder="land" />
+                    <div>
+                        <label class="label">Land: </label>
+                        <input asp-for="@Model.Guest.Nationality" class="input" />
                         <span asp-validation-for="@Model.Guest.Nationality" class="text-danger"></span>
                     </div>
 
 
-                    <div class="form-group">
-                        @*<label asp-for="@Model.Booking.CreatedBy" class="control-label "><b class="text-white">Opretet af</b></label>*@
-                        <input asp-for="@Model.Booking.CreatedBy" class="input" placeholder=" opretet af" />
+                    <div>
+                        <label class="label">Oprettet af: </label>
+                        <input asp-for="@Model.Booking.CreatedBy" class="input" />
                         <span asp-validation-for="@Model.Booking.CreatedBy" class="text-danger"></span>
                     </div>
 
 
-                    <div class="form-group">
-                        @*<label asp-for="@Model.Booking.NumberOfPeople" class="control-label "><b class="text-white">Antal personer</b></label>*@
-                        <input asp-for="@Model.Booking.NumberOfPeople" class="input" placeholder="Antal personer" />
+                    <div>
+                        <label class="label">Antal personer: </label>
+                        <input asp-for="@Model.Booking.NumberOfPeople" class="input" />
                         <span asp-validation-for="@Model.Booking.NumberOfPeople" class="text-danger"></span>
                     </div>
 
 
-                    <div class="form-group">
-                        @*<label asp-for="@Model.Booking.BookingComment" class="control-label "><b class="text-white">kommentar</b></label>*@
-                        <input asp-for="@Model.Booking.BookingComment" class="input" placeholder="Skriv en komentar her" />
+                    <div>
+                        
+                        <textarea rows="3" placeholder="Evt. kommentar" asp-for="@Model.Booking.BookingComment">  </textarea>
                         <span asp-validation-for="@Model.Booking.BookingComment" class="text-danger"></span>
                     </div>
 
 
-
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
-                    </div>
-
                     <div>
-                        <a asp-page="/BookingRRC/Acceptance"> tilbage </a>
+                        <input type="submit" value="Create" class="btn btn-primary" asp-page="/InternallySystem/EmployeeeCalendar" />
+                        <a class="btn btn-secondary" asp-page="/InternallySystem/EmployeeCalendar"> tilbage </a>
                     </div>
                 </div>
             </form>
-
         </div>
-       
-
     </div>
-   
-
-
-   
 }
 
