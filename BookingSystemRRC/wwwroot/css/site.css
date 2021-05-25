@@ -168,8 +168,8 @@ li {
 
 .calendarBTN {
     color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    background-color: #ff540a;
+    border-color: #ff540a;
 }
 
 /*#endregion Calendar*/
@@ -255,7 +255,7 @@ textarea {
 
 
 a {
-    color: #0366d6;
+    color: #ff540a;
 }
 
 .dropdown {
