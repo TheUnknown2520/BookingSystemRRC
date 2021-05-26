@@ -187,6 +187,8 @@ li {
 
 /*input Create booking*/
 
+
+/*
 .texted {
     color: #ff540a;
 }
@@ -211,7 +213,7 @@ textarea {
     display: inline-block;
     text-align: right;
 }
-
+*/
 /*#region Navigation-bar*/
 
 /* Add a black background color to the top navigation */
@@ -265,7 +267,7 @@ textarea {
 }
 
 
-a {
+/*a {
     color: #ff540a;
 }
 
@@ -280,10 +282,10 @@ a {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-}
+}*/
 
     /* Links inside the dropdown */
-    .dropdown-content a {
+  /*  .dropdown-content a {
         color: black;
         padding: 12px 16px;
         text-decoration: none;
@@ -296,22 +298,22 @@ a {
     padding: 16px;
     font-size: 16px;
     border: none;
-}
+}*/
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {
+/*.dropdown-content a:hover {
     background-color: #ddd;
-}
+}*/
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+/*.dropdown:hover .dropdown-content {
     display: block;
-}
+}*/
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
+/*.dropdown:hover .dropbtn {
     background-color: #3e8e41;
-}
+}*/
 /*#endregion Navigation-bar*/
 
 /* vælg booking container*/
@@ -341,5 +343,211 @@ a {
         #myContainer #mybutton:hover {
             box-shadow: inset 300px 0 0 0 #c84a07;
         }
-       
+
+#container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+
+/*Create booking*/
+.row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+
+
+.col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+}
+
+.col-75 {
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+}
+
+
+.col-50,
+.col-75 {
+    padding: 0 16px;
+}
+
+#myContainer2 {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+  
+}
+
+#myContainer2 {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+}
+
+.row {
+    display: -ms-flexbox; 
+    display: flex;
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+.col-25 {
+    -ms-flex: 25%; 
+    flex: 25%;
+}
+
+.col-50 {
+    -ms-flex: 50%;
+    flex: 50%;
+}
+
+.col-75 {
+    -ms-flex: 75%; 
+    flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+    padding: 0 16px;
+}
+
+
+
+input[type=text], select, textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type=datetime-local] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+}
+
+/*.btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+}*/
+
+/*.btn:hover {
+    background-color: #45a049;
+}*/
+
+/*span.price {
+    float: right;
+    color: grey;
+}*/
+
+/*Log in formular*/
+
+
+#myContainer3 {
+    width: 350px;
+    margin: 7% auto;
+    border-radius: 25px;
+    background-color: rgba(0,0,0,0.2);
+    box-shadow: 0 0 17px #333;
+}
+
+#myHeader2 {
+    text-align: center;
+    padding-top: 75px;
+}
+
+#myHeader2 h1 {
+    color: #333;
+    font-size: 45px;
+    margin-bottom: 80px;
+}
+
+#mymain {
+    text-align: center;
+}
+
+#mymain #myinput, #mybutton {
+    width: 300px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+    #mymain #mybutton {
+        padding-left: 0;
+        background-color: #ff540a;
+        letter-spacing: 1px;
+        font-weight: bold;
+        margin-bottom: 70px;
+    }
+
+        #mymain #mybutton:hover {
+            background-color: #c45718;
+        }
+
+#mymain #myinput:hover {
+    box-shadow: 2px 2px 5px #555;
+    background-color: #ddd;
+}
+
+#mymain span {
+    position: relative;
+}
+
+#mymain i {
+    position: absolute;
+    left: 15px;
+    color: #333;
+    font-size: 16px;
+    top: 2px;
+}
    

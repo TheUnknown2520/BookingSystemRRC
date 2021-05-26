@@ -2,53 +2,46 @@
 @model BookingSystemRRC.Pages.BookingRRC.CreateGuestModel
 @{
 }
+
+
 <div class="row">
-    <div class="col-3">
-        <form method="post">
-            <div class="input-fields">
+    <div class="col-50">
+        <div id="myContainer2">
+            <form method="post">
 
-                <div class="form-group">
-                    <label>Fornavn </label>
-                    <input asp-for="@Model.Guest.FirstName" class="input" />
-                    <span asp-validation-for="@Model.Guest.FirstName" class="text-danger"></span>
+                <div class="row">
+                    <div class="col-50">
+                        <h3>Kunde oplysninger</h3>
+                        <label for="fname"><i class="fa fa-user"></i> Fornavn</label>
+                        <input type="text" asp-for="@Model.Guest.FirstName" id="fname" placeholder="John">
+                        <span asp-validation-for="@Model.Guest.FirstName" class="text-danger"></span>
+
+                        <label for="lname"><i class="fa fa-user"></i> Efternavn</label>
+                        <input type="text" asp-for="@Model.Guest.LastName" id="lname" placeholder="Johnson">
+                        <span asp-validation-for="@Model.Guest.LastName" class="text-danger"></span>
+
+                        <label for="phonenr"><i class="bi bi-phone-fill"></i> Telefon</label>
+                        <input type="text" asp-for="@Model.Guest.PhoneNumber" id="phonenr" placeholder="12345678">
+                        <span asp-validation-for="@Model.Guest.PhoneNumber"></span>
+
+                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                        <input type="text" asp-for="@Model.Guest.Email" id="email" placeholder="John@Johnson.com">
+                        <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
+
+                        <label for="nationality"><i class="fa fa-institution"></i> Nationalitet</label>
+                        <input type="text" asp-for="@Model.Guest.Nationality" id="nationality" placeholder="Danmark">
+                        <span asp-validation-for="@Model.Guest.Nationality"></span>
+
+                        <label for="GuestComment"><i class="fa fa-envelope"></i> </label>
+                        <input type="text" asp-for="@Model.Guest.GuestComment" id="GuestComment" placeholder="Kommentar">
+                        <span asp-validation-for="@Model.Guest.GuestComment" class="text-danger"></span>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label>Efternavn </label>
-                    <input asp-for="@Model.Guest.LastName" class="input" />
-                    <span asp-validation-for="@Model.Guest.LastName" class="text-danger"></span>
+                    <input type="submit" value="Opret" class="btn btn-primary" asp-page="/InternallySystem/EmployeeeCalendar" />
+                    <a class="btn btn-secondary" asp-page="/InternallySystem/EmployeeCalendar"> Tilbage </a>
                 </div>
-
-                <div class="form-group">
-                    <label>Email: </label>
-                    <input asp-for="@Model.Guest.Email" class="input" />
-                    <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
-                </div>
-
-
-                <div class="form-group">
-                    <label>Nummer: </label>
-                    <input asp-for="@Model.Guest.PhoneNumber" class="input" />
-                    <span asp-validation-for="@Model.Guest.PhoneNumber" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label>Land </label>
-                    <input asp-for="@Model.Guest.Nationality" class="input" />
-                    <span asp-validation-for="@Model.Guest.Nationality" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label>komentar </label>
-                    <input asp-for="@Model.Guest.GuestComment" class="input" />
-                    <span asp-validation-for="@Model.Guest.GuestComment" class="text-danger"></span>
-                </div>
-
-
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" asp-page="/InternallySystem/EmployeeeCalendar" />
-                    <a class="btn btn-secondary" asp-page="/InternallySystem/EmployeeCalendar"> tilbage </a>
-                </div>
-            </div>
-        </form>
-    </div>
+            </form>
+</div>
+</div>
 </div>

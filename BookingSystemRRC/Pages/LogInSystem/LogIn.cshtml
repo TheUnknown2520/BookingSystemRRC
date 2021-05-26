@@ -1,7 +1,37 @@
 ﻿@page
 @model BookingSystemRRC.Pages.LogInSystem.LogInModel
 @{
-    <div class="container">
+    <body id="myBody">
+
+ 
+
+    <div class="container" id="myContainer3">
+        <div id="myHeader2">
+            @Model.Message
+            <h1 class="text-white" > LogInd </h1>
+        </div>
+        <div id="mymain">
+            <form method="post">
+                <span>
+                    <i class="fa fa-user"></i>
+                    <input id="myinput" type="text" placeholder="Brugernavn" asp-for="Username" />
+                </span>
+                <br />
+                <span>
+                    <i class="fa fa-lock"> </i>
+                    <input id="myinput" type="password" placeholder="adgangskode" asp-for="Password" />
+                </span><br />
+                @*<button id="mybutton"> logind</button>*@
+                <button id="mybutton" type="submit">Log ind</button>
+            </form>
+        </div>
+
+    </div>
+
+    </body> 
+    
+    
+    @*<div id="container">
         <div>
             @Model.Message
         </div>
@@ -22,6 +52,6 @@
                 <button type="submit">Log ind</button>
             </div>
         </form>
-    </div>
+    </div>*@
 
 }

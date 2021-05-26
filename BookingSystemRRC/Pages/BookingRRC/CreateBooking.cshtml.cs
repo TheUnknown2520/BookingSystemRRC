@@ -44,7 +44,7 @@ namespace BookingSystemRRC.Pages.BookingRRC
                 return BadRequest(ModelState);
             }
             await guestService.CreateGuestAsync(Guest);
-            Booking.GuestNumber = Guest.GuestNumber;
+            //Booking.GuestNumber = Guest.GuestNumber;
            await bookingService.CreateBookingAsync(Booking);
             return RedirectToPage("/BookingRRC/BookingAcceptance");
         }
