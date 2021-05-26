@@ -11,6 +11,7 @@ namespace BookingSystemRRC.Pages.LogInSystem
 {
     public class LogOutModel : PageModel
     {
+        /*Eksekverer en handling, som gør at en bruger logges ud, og ikke længere har adgang til det interne system og dets funktioner.*/
         public async Task<IActionResult> OnGet()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

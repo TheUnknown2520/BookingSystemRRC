@@ -11,10 +11,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
 namespace BookingSystemRRC.Pages.Admin
+
 {
-    public class CreateUserModel : PageModel
+   [Authorize(Roles = "Jesper")] 
+   public class CreateUserModel : PageModel
     {
+        //private BookingService bookingService;
+        //private List<User> users;
+
+        //[BindProperty]
+        //public User User { get; set; } = new User();
+
         private UserService _userService;
 
         private PasswordHasher<string> passwordHasher;
@@ -32,13 +41,14 @@ namespace BookingSystemRRC.Pages.Admin
             passwordHasher = new PasswordHasher<string>();
         }
 
-        public IActionResult OnPost()
+
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            _userService.AddUser(new User(Username, passwordHasher.HashPassword(null, Password)));
+            await _userService.AddUserAsync(new User(Username, passwordHasher.HashPassword(null, Password)));
             return RedirectToPage("/Admin/ManageUser");
         }
     }
