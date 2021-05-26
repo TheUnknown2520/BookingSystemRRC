@@ -67,6 +67,10 @@ body
 }
 
 
+.btn {
+    background-color: #212121;
+    border-color: #808080;
+}
 
 /*#endregion Default*/
 
