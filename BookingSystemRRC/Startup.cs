@@ -31,14 +31,18 @@ namespace BookingSystemRRC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddDbContext < BookingDbContext>();
+            services.AddDbContext <BookingDbContext>();
             services.AddSingleton<BookingService, BookingService>();
             services.AddSingleton<UserService, UserService>();
+            services.AddSingleton<RoomBookingService, RoomBookingService>();
+            services.AddSingleton<GuestService, GuestService>();
             //services.AddSingleton<DbService, DbService>();
             services.AddTransient<DbGenericService<Booking>, DbGenericService<Booking>>();
             services.AddTransient<DbGenericService<Guest>, DbGenericService<Guest>>();
-            services.AddTransient<DbGenericService<TimeSlotBooking>, DbGenericService<TimeSlotBooking>>();
             services.AddTransient<DbGenericService<User>, DbGenericService<User>>();
+            services.AddTransient<DbGenericService<RoomBooking>, DbGenericService<RoomBooking>>();
+            
+
 
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions =>

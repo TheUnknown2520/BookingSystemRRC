@@ -3,19 +3,31 @@
 @{
 }
 <div>
-    <table class="table table-bordered table-hover table-striped" width="60%">
-        <col style=" width: 15%" />
+    <table class="table table-bordered table-hover table-striped" width="80%">
+        <col style=" width: 10%" />
+        <col style="width: 10%" />
         <col style="width: 15%" />
         <col style="width: 15%" />
-        <col style="width: 30%" />
+        <col style="width: 10%" />
+        <col style="width: 15%" />
         <col style="width: 15%" />
         <thead>
             <tr class="btn-secondary active">
                 <th>
                     <div><h4> Ordernummer</h4> </div>
+                    <div>
+                        <a data-toggle="tooltip" title="Sort By Id" asp-page-handler="SortById"><i class="fa fa-angle-up"></i></a>
+                        <a data-toggle="tooltip" title="Sort By Id Descending" asp-page-handler="SortByIdDescending"><i class="fa fa-angle-down"></i></a>
+                    </div>
                 </th>
                 <th>
-                    <div><h4> Lavet af</h4> </div>
+                    <div><h4> Dag/Tid</h4> </div>
+                </th>
+                <th>
+                    <div><h4> Navn </h4> </div>
+                </th>
+                <th>
+                    <div><h4> email </h4> </div>
                 </th>
                 <th>
                     <div><h4> Antal personer </h4> </div>
@@ -24,7 +36,7 @@
                     <div><h4> Komenter</h4> </div>
                 </th>
                 <th>
-                    <div><h3> Action </h3></div>
+                    <div><h3> Rediger/slet </h3></div>
                 </th>
 
             </tr>
@@ -32,14 +44,21 @@
         <tbody>
             @if (@Model.bookings != null)
             {
-                foreach(var bookings in Model.bookings)
+                foreach (var bookings in Model.bookings)
                 {
                     <tr>
-                        <td >
+                        <td>
                             @bookings.BookingNumber
                         </td>
                         <td>
-                            @bookings.CreatedBy
+                            @bookings.WeekDays
+                        </td>
+                        <td>
+                            @*@bookings.Guest.FirstName
+                            @bookings.Guest.LastName*@
+                        </td>
+                        <td>
+                            @*@bookings.Guest.Email*@
                         </td>
                         <td>
                             @bookings.NumberOfPeople
@@ -47,6 +66,7 @@
                         <td>
                             @bookings.BookingComment
                         </td>
+
                         <td>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
@@ -55,7 +75,7 @@
                                 <li class="list-inline-item">
                                     <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="delete" asp-page="DeleteBooking" asp-route-id="@bookings.BookingNumber"> <i class="fa fa-trash"></i></a>
                                 </li>
-                                
+
                             </ul>
 
                         </td>

@@ -11,6 +11,7 @@ namespace BookingSystemRRC.Pages.BookingRRC
     public class BookingAcceptanceModel : PageModel
     {
         private BookingService bookingService;
+        
 
         public List<Models.Booking> bookings { get; private set;}
 
@@ -21,6 +22,17 @@ namespace BookingSystemRRC.Pages.BookingRRC
         public IActionResult OnGet()
         {
             bookings = bookingService.GetBookings().ToList();
+            return Page();
+        }
+
+        public IActionResult OnGetSortById()
+        {
+            bookings = bookingService.SortByID().ToList();
+            return Page();
+        }
+        public IActionResult OnGetSortByIdDescending()
+        {
+            bookings = bookingService.SortByIDDescending().ToList();
             return Page();
         }
     }

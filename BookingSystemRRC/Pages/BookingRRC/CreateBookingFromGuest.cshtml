@@ -1,0 +1,65 @@
+﻿@page 
+@model BookingSystemRRC.Pages.BookingRRC.CreateBookingFromGuestModel
+@{
+}
+
+<h5> Opret en booking </h5>
+
+<div class="row">
+    <div class="col-3">
+        <form method="post">
+            <div class="input-fields">
+
+
+                <div>
+                    <label>vælg dag</label>
+                    <select class="form-control" asp-for="Booking.WeekDays">
+                        @foreach (var Week in Enum.GetNames(typeof(Models.WeekDays)))
+                        {
+                            <option value="@Week">@Week</option>
+                        }
+                    </select>
+                </div>
+
+
+
+                <div>
+                    <label for="events"> Events: </label>
+                    <select class="form-control" asp-for="Booking.Type">
+                        @foreach (var booking in Enum.GetNames(typeof(Models.BookingEvents)))
+                        {
+                            <option value="@booking">@booking</option>
+                        }
+                    </select>
+                </div>
+
+
+                <div>
+                    <label>Oprettet af: </label>
+                    <input asp-for="@Model.Booking.CreatedBy" class="input" />
+                    <span asp-validation-for="@Model.Booking.CreatedBy" class="text-danger"></span>
+                </div>
+
+
+                <div>
+                    <label>Antal personer: </label>
+                    <input asp-for="@Model.Booking.NumberOfPeople" class="input" />
+                    <span asp-validation-for="@Model.Booking.NumberOfPeople" class="text-danger"></span>
+                </div>
+
+
+                <div>
+                    <label>Note: </label>
+                    <input asp-for="@Model.Booking.BookingComment" class="input" />
+                    <span asp-validation-for="@Model.Booking.BookingComment" class="text-danger"></span>
+                </div>
+
+
+                <div>
+                    <input type="submit" value="Create" class="btn btn-primary" asp-page="/BookingRRC/GuestsList" />
+                    <a class="btn btn-secondary" asp-page="/BookingRRC/GuestsList"> tilbage </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

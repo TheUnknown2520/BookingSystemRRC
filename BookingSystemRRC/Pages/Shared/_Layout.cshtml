@@ -27,7 +27,7 @@
 
                     <a asp-area="" asp-page="/Privacy">EVENTS</a>
 
-                    <a asp-area="" asp-page="/Privacy">BOOKING</a>
+                    <a asp-area="" asp-page="/OnlineBooking/VælgBooking">BOOKING</a>
 
                     <a asp-area="" asp-page="/Privacy">RACING</a>
 
@@ -43,9 +43,11 @@
                 }
                 else //Viser det interne system, når en medarbejder er logget ind
                 {
-                    <a asp-area="" asp-page="/InternallySystem/EmployeeCalendar">BOOKING</a>
+                    <a asp-area="" asp-page="/InternallySystem/EmployeeCalendar">KALENDER</a>
 
                     <a asp-area="" asp-page="/BookingRRC/BookingAcceptance">ONLINE BOOKING</a>
+
+                    <a asp-area="" asp-page="/BookingRRC/GuestsList"> GÆSTER </a>
 
 
                         if (Context.User.Identity != null && Context.User.Identity.Name == "Jesper") //Viser en side, hvorfra systemets brugere kan administreres, som kun Admin har adgang til
@@ -59,7 +61,7 @@
                 }
             }
 
-            </div>
+        </div>
     </div>
   
   

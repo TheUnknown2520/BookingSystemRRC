@@ -1,0 +1,54 @@
+﻿@page
+@model BookingSystemRRC.Pages.BookingRRC.CreateGuestModel
+@{
+}
+<div class="row">
+    <div class="col-3">
+        <form method="post">
+            <div class="input-fields">
+
+                <div class="form-group">
+                    <label>Fornavn </label>
+                    <input asp-for="@Model.Guest.FirstName" class="input" />
+                    <span asp-validation-for="@Model.Guest.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Efternavn </label>
+                    <input asp-for="@Model.Guest.LastName" class="input" />
+                    <span asp-validation-for="@Model.Guest.LastName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Email: </label>
+                    <input asp-for="@Model.Guest.Email" class="input" />
+                    <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Nummer: </label>
+                    <input asp-for="@Model.Guest.PhoneNumber" class="input" />
+                    <span asp-validation-for="@Model.Guest.PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Land </label>
+                    <input asp-for="@Model.Guest.Nationality" class="input" />
+                    <span asp-validation-for="@Model.Guest.Nationality" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>komentar </label>
+                    <input asp-for="@Model.Guest.GuestComment" class="input" />
+                    <span asp-validation-for="@Model.Guest.GuestComment" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" asp-page="/InternallySystem/EmployeeeCalendar" />
+                    <a class="btn btn-secondary" asp-page="/InternallySystem/EmployeeCalendar"> tilbage </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
