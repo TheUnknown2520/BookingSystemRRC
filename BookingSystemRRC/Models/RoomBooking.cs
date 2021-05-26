@@ -15,6 +15,8 @@ namespace BookingSystemRRC.Models
         [Required]
         public WeekDays WeekDay { get; set; }
 
+        public Guest Guest { get; set; }
+
         public RoomBooking()
         {
 

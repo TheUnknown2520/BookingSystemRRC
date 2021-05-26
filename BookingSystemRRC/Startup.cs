@@ -38,10 +38,10 @@ namespace BookingSystemRRC
             services.AddSingleton<GuestService, GuestService>();
             //services.AddSingleton<DbService, DbService>();
             services.AddTransient<DbGenericService<Booking>, DbGenericService<Booking>>();
-            //services.AddSingleton<DbGenericService<Guest>, DbGenericService<Guest>>();
+            services.AddTransient<DbGenericService<Guest>, DbGenericService<Guest>>();
             services.AddTransient<DbGenericService<User>, DbGenericService<User>>();
             services.AddTransient<DbGenericService<RoomBooking>, DbGenericService<RoomBooking>>();
-            services.AddTransient<GuestDbService, GuestDbService>();
+            
 
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions =>

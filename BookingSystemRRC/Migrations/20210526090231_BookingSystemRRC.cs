@@ -11,8 +11,10 @@ namespace BookingSystemRRC.Migrations
                 name: "Guests",
                 columns: table => new
                 {
-                    GuestNumber = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GuestNumbe = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<int>(type: "int", nullable: false),
                     Nationality = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -20,7 +22,7 @@ namespace BookingSystemRRC.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Guests", x => x.GuestNumber);
+                    table.PrimaryKey("PK_Guests", x => x.GuestNumbe);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,35 +46,63 @@ namespace BookingSystemRRC.Migrations
                     BookingNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NumberOfPeople = table.Column<int>(type: "int", nullable: false),
-                    TotalPrice = table.Column<int>(type: "int", nullable: false),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BookingComment = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WeekDays = table.Column<int>(type: "int", nullable: false),
-                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    GuestNumber = table.Column<int>(type: "int", nullable: true)
+                    DateTimeStart = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateTimeEnd = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    GuestNumbe = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bookings", x => x.BookingNumber);
                     table.ForeignKey(
-                        name: "FK_Bookings_Guests_GuestNumber",
-                        column: x => x.GuestNumber,
+                        name: "FK_Bookings_Guests_GuestNumbe",
+                        column: x => x.GuestNumbe,
                         principalTable: "Guests",
-                        principalColumn: "GuestNumber",
+                        principalColumn: "GuestNumbe",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RoomBookings",
+                columns: table => new
+                {
+                    RoomBookingNumber = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    WeekDay = table.Column<int>(type: "int", nullable: false),
+                    GuestNumbe = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RoomBookings", x => x.RoomBookingNumber);
+                    table.ForeignKey(
+                        name: "FK_RoomBookings_Guests_GuestNumbe",
+                        column: x => x.GuestNumbe,
+                        principalTable: "Guests",
+                        principalColumn: "GuestNumbe",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Bookings_GuestNumber",
+                name: "IX_Bookings_GuestNumbe",
                 table: "Bookings",
-                column: "GuestNumber");
+                column: "GuestNumbe");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RoomBookings_GuestNumbe",
+                table: "RoomBookings",
+                column: "GuestNumbe");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Bookings");
+
+            migrationBuilder.DropTable(
+                name: "RoomBookings");
 
             migrationBuilder.DropTable(
                 name: "Users");

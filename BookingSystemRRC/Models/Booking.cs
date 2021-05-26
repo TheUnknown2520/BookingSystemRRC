@@ -43,7 +43,7 @@ namespace BookingSystemRRC.Models
             // Default Constructor (takes no parameters)
         }
 
-        public Booking( int numberOfPeople, /*int totalprice,*/ string type, string bookingComemnt, string createdBy, WeekDays weekDays, DateTime dateTime)
+        public Booking( int numberOfPeople, /*int totalprice,*/ string type, string bookingComemnt, string createdBy, WeekDays weekDays, DateTime dateTimeStart, DateTime dateTimeEnd)
         {
             BookingNumber = Nextbookingnumber++;
             NumberOfPeople = numberOfPeople;

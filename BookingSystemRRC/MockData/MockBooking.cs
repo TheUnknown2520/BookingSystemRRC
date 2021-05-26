@@ -11,11 +11,11 @@ namespace BookingSystemRRC.MockData
 
         private static List<Booking> bookings = new List<Booking>()
         {
-            new Booking( 10, "Firma", "Øl klar ved ankomst", "Christopher", WeekDays.Mandag, DateTime.Now),
+            new Booking( 10, "Firma", "Øl klar ved ankomst", "Christopher", WeekDays.Mandag, DateTime.Now, DateTime.Now),
 
 
 
-            new Booking( 10,  "Firma", "Øl klar ved ankomst", "Christopher", WeekDays.Mandag,  DateTime.Now)
+            new Booking( 10,  "Firma", "Øl klar ved ankomst", "Christopher", WeekDays.Mandag,  DateTime.Now, DateTime.Now)
         };
 
         public static List<Booking> GetMockBookings()

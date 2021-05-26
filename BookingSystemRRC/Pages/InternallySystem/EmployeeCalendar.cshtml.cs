@@ -50,7 +50,7 @@ namespace BookingSystemRRC.Pages.InternallySystem
             {
                 return Page();
             }
-            await bookingService.CreateBookingAsync(new Booking(10, "Firma", "fadøl", "Christopher", WeekDays.Mandag, DateTime.Now));
+            await bookingService.CreateBookingAsync(new Booking(10, "Firma", "fadøl", "Christopher", WeekDays.Mandag, DateTime.Now, DateTime.Now));
 
             return RedirectToPage("EmployeeCalendar");
         }

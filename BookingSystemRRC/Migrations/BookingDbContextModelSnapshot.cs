@@ -4,16 +4,14 @@ using BookingSystemRRC.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookingSystemRRC.Migrations
 {
     [DbContext(typeof(BookingDbContext))]
-    [Migration("20210525112321_BookingSystemRRC")]
-    partial class BookingSystemRRC
+    partial class BookingDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,23 +31,21 @@ namespace BookingSystemRRC.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateTime")
+                    b.Property<DateTime>("DateTimeEnd")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("GuestNumber")
+                    b.Property<DateTime>("DateTimeStart")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("GuestNumbe")
                         .HasColumnType("int");
 
                     b.Property<int>("NumberOfPeople")
                         .HasColumnType("int");
 
-                    b.Property<int>("TotalPrice")
-                        .HasColumnType("int");
-
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("WeekDays")
@@ -57,24 +53,30 @@ namespace BookingSystemRRC.Migrations
 
                     b.HasKey("BookingNumber");
 
-                    b.HasIndex("GuestNumber");
+                    b.HasIndex("GuestNumbe");
 
                     b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("BookingSystemRRC.Models.Guest", b =>
                 {
-                    b.Property<int>("GuestNumber")
-                        .HasColumnType("int");
+                    b.Property<int>("GuestNumbe")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GuestComment")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -84,9 +86,29 @@ namespace BookingSystemRRC.Migrations
                     b.Property<int>("PhoneNumber")
                         .HasColumnType("int");
 
-                    b.HasKey("GuestNumber");
+                    b.HasKey("GuestNumbe");
 
                     b.ToTable("Guests");
+                });
+
+            modelBuilder.Entity("BookingSystemRRC.Models.RoomBooking", b =>
+                {
+                    b.Property<int>("RoomBookingNumber")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("GuestNumbe")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WeekDay")
+                        .HasColumnType("int");
+
+                    b.HasKey("RoomBookingNumber");
+
+                    b.HasIndex("GuestNumbe");
+
+                    b.ToTable("RoomBookings");
                 });
 
             modelBuilder.Entity("BookingSystemRRC.Models.User", b =>
@@ -114,7 +136,16 @@ namespace BookingSystemRRC.Migrations
                 {
                     b.HasOne("BookingSystemRRC.Models.Guest", "Guest")
                         .WithMany("Bookings")
-                        .HasForeignKey("GuestNumber");
+                        .HasForeignKey("GuestNumbe");
+
+                    b.Navigation("Guest");
+                });
+
+            modelBuilder.Entity("BookingSystemRRC.Models.RoomBooking", b =>
+                {
+                    b.HasOne("BookingSystemRRC.Models.Guest", "Guest")
+                        .WithMany("RoomBookings")
+                        .HasForeignKey("GuestNumbe");
 
                     b.Navigation("Guest");
                 });
@@ -122,6 +153,8 @@ namespace BookingSystemRRC.Migrations
             modelBuilder.Entity("BookingSystemRRC.Models.Guest", b =>
                 {
                     b.Navigation("Bookings");
+
+                    b.Navigation("RoomBookings");
                 });
 #pragma warning restore 612, 618
         }
