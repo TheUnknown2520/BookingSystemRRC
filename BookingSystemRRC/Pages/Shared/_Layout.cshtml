@@ -27,7 +27,7 @@
 
                     <a asp-area="" asp-page="/Privacy">EVENTS</a>
 
-                    <a asp-area="" asp-page="/Privacy">BOOKING</a>
+                    <a asp-area="" asp-page="/OnlineBooking/VælgBooking">BOOKING</a>
 
                     <a asp-area="" asp-page="/Privacy">RACING</a>
 
@@ -43,15 +43,17 @@
                 }
                 else
                 {
-                    <a asp-area="" asp-page="/InternallySystem/EmployeeCalendar">BOOKING</a>
+                    <a asp-area="" asp-page="/InternallySystem/EmployeeCalendar">KALENDER</a>
 
                     <a asp-area="" asp-page="/BookingRRC/BookingAcceptance">ONLINE BOOKING</a>
 
+                    <a asp-area="" asp-page="/BookingRRC/GuestsList"> GÆSTER </a>
 
-                        if (Context.User.Identity != null && Context.User.Identity.Name == "Jesper")
-                        {
-                            <a asp-area="" asp-page="/Admin/ManageUser">ADMINISTRER BRUGERE</a>
-                        }
+
+                    if (Context.User.Identity != null && Context.User.Identity.Name == "Jesper")
+                    {
+                        <a asp-area="" asp-page="/Admin/ManageUser">ADMINISTRER BRUGERE</a>
+                    }
 
 
                     <a asp-area="" asp-page="/LogInSystem/LogOut"><strong>LOG UD</strong></a>
@@ -59,7 +61,7 @@
                 }
             }
 
-            </div>
+        </div>
     </div>
   
   

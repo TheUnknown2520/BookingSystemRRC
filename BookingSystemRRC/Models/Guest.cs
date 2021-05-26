@@ -10,10 +10,12 @@ namespace BookingSystemRRC.Models
     public class Guest
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int GuestNumber { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int GuestNumbe { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
         [Required]
         public string Email { get; set; }
         [Required]
@@ -32,10 +34,11 @@ namespace BookingSystemRRC.Models
             // Default Constructor (takes no parameters)
         }
 
-        public Guest( string name, string email, int phoneNumber, string nationality, string guestComment /*string createdBy*/)
+        public Guest( string firstName, string lastName, string email, int phoneNumber, string nationality, string guestComment /*string createdBy*/)
         {
-            GuestNumber = NextGuestNumber++;
-            Name = name;
+            GuestNumbe = NextGuestNumber++;
+            FirstName = firstName ;
+            LastName = lastName;
             Email = email;
             PhoneNumber = phoneNumber;
             Nationality = nationality;

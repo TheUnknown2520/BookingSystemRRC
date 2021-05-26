@@ -10,6 +10,21 @@ namespace BookingSystemRRC.Models
     public class RoomBooking
     {
         [Key]
-        public int RoomId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int RoomBookingNumber { get; set; }
+        [Required]
+        public WeekDays WeekDay { get; set; }
+
+        public RoomBooking()
+        {
+
+        }
+
+        public RoomBooking(WeekDays weekDays)
+        {
+                
+        }
+
+
     }
 }

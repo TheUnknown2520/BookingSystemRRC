@@ -27,8 +27,6 @@ namespace BookingSystemRRC.Services
         }
 
 
-
-
         //henter en booking via dens booking nummer
         public Booking GetBooking(int bookingNumber)
         {
@@ -56,24 +54,16 @@ namespace BookingSystemRRC.Services
                 bookings.Add(booking);
                 await DbService.AddObjectAsync(booking);
             }
+
         }
       
-        
-
-        
+       
 
         //Sletter en booking ud fra booking nr
         public async Task DeleteBookingAsync(int bookingNumber)
         {
             Booking bookingToBeDeleted = bookings.Find(booking => booking.BookingNumber == bookingNumber);
-            //foreach(Booking b in bookings)
-            //{
-            //    if(b.BookingNumber == bookingNumber)
-            //    {
-            //        bookingToBeDeleted = b;
-            //        break;
-            //    }
-            //}
+           
             if(bookingToBeDeleted != null)
             {
                 bookings.Remove(bookingToBeDeleted);
@@ -94,9 +84,11 @@ namespace BookingSystemRRC.Services
                     {
                         b.CreatedBy = booking.CreatedBy;
                         b.NumberOfPeople = booking.NumberOfPeople;
-                        b.TotalPrice = b.TotalPrice;
+                        //b.TotalPrice = b.TotalPrice;
                         b.BookingComment = booking.BookingComment;
                         b.Type = booking.Type;
+                        b.WeekDays = booking.WeekDays;
+                        
                     }
                 }
 
@@ -108,18 +100,36 @@ namespace BookingSystemRRC.Services
         #endregion
 
 
-        public void MoveBookingLeft(int id)
+        public async Task MoveBookingLeft(int id)
         {
             Booking booking = GetBooking(id);
             booking.WeekDays--;
-            DbService.UpdateObjectAsync(booking);
+            await DbService.UpdateObjectAsync(booking);
         }
 
-        public void MoveBookingRight(int id)
+        public async Task MoveBookingRight(int id)
         {
             Booking booking = GetBooking(id);
             booking.WeekDays++;
-            DbService.UpdateObjectAsync(booking);
+            await DbService.UpdateObjectAsync(booking);
+        }
+
+    
+
+       
+
+        public IEnumerable<Booking> SortByID()
+        {
+            return from Booking in bookings
+                   orderby Booking.BookingNumber
+                   select Booking;
+        }
+
+        public IEnumerable<Booking> SortByIDDescending()
+        {
+            return from Booking in bookings
+                   orderby Booking.BookingNumber descending
+                   select Booking;
         }
     }
 }

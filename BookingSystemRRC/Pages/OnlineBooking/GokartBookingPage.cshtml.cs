@@ -1,20 +1,18 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using BookingSystemRRC.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using BookingSystemRRC.Models;
+using BookingSystemRRC.Services;
 
-namespace BookingSystemRRC.Pages.BookingRRC
+namespace BookingSystemRRC.Pages.OnlineBooking
 {
-    public class CreateBookingModel : PageModel
+    public class GokartBookingPageModel : PageModel
     {
-
-
-        // For at kunne bruge Booking Service og Listen af g�ster, kr�ver det en reference til Services.BookingService.cs
         private BookingService bookingService;
+        private GuestService guestService;
         private List<Models.Booking> bookings;
         private List<Models.Guest> guests;
 
@@ -23,12 +21,15 @@ namespace BookingSystemRRC.Pages.BookingRRC
         [BindProperty]
         public Models.Guest Guest { get; set; }
 
-        
+        //[BindProperty]
+        //public string Type { get; set; }
 
-        public CreateBookingModel(BookingService bookingService)
+        public GokartBookingPageModel(BookingService bookingService, GuestService guestService)
         {
             this.bookingService = bookingService;
+            this.guestService = guestService; 
             bookings = bookingService.GetBookings().ToList();
+            guests = guestService.GetGuests().ToList();
         }
 
         public IActionResult OnGet()
@@ -42,8 +43,10 @@ namespace BookingSystemRRC.Pages.BookingRRC
             {
                 return BadRequest(ModelState);
             }
-           await bookingService.CreateBookingAsync(Booking);
-            return RedirectToPage("/BookingRRC/BookingAcceptance");
+            await bookingService.CreateBookingAsync(Booking);
+            await guestService.CreateGuestAsync(Guest);
+            return RedirectToPage("/OnlineBooking/Thanks");
         }
+
     }
 }

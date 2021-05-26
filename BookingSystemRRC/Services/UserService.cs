@@ -18,7 +18,7 @@ namespace BookingSystemRRC.Services
             DbService = dbService;
             users = MockUser.GetMockUsers();
             //users = DbService.GetObjectsAsync().Result.ToList();
-            //DbService.SaveUsers(users);
+            
         }
 
         public void AddUser(User user)
@@ -29,19 +29,16 @@ namespace BookingSystemRRC.Services
 
         public User GetUsers(string username)
         {
-            //foreach (User user in users)
-            //{
-            //    if (user.Username == username)
-            //        return user;
-            //}
-            //return null;
             return users.Find(user => user.Username == username);
         }
-
 
         public IEnumerable<User> GetUsers()
         {
             return users;
         }
+
+
+
+
     }
 }

@@ -1,0 +1,93 @@
+﻿@page
+@model BookingSystemRRC.Pages.BookingRRC.GuestsListModel
+@{
+}
+<div>
+    <div class="row">
+        <div class="col-4">
+            <form method="post" class="form-inline">
+                <input asp-for="@Model.Search" class="form-control mr-1" placeholder="Enter search term" />
+                <input type="submit" asp-page-handler="Search" value="Search" class="btn btn-primary" />
+            </form>
+        </div>
+
+    </div>
+    <table class="table table-bordered table-hover table-striped" width="80%">
+        <col style=" width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <thead>
+            <tr class="btn-secondary active">
+                <th>
+                    <div><h4> gæst nummer</h4> </div>
+                </th>
+                <th>
+                    <div><h4> Navn</h4> </div>
+                </th>
+                <th>
+                    <div><h4> email </h4> </div>
+                </th>
+                <th>
+                    <div><h4> tlf. nummer</h4> </div>
+                </th>
+                <th>
+                    <div><h4> Sprog </h4> </div>
+                </th>
+                <th>
+                    <div><h4> komentar</h4> </div>
+                </th>
+                <th>
+                    <div><h3> rediger/slet </h3></div>
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (@Model.guests != null)
+            {
+                foreach (var guest in Model.guests)
+                {
+                    <tr>
+                        <td>
+                            @guest.GuestNumbe
+                        </td>
+                        <td>
+                          @guest.FirstName
+                          @guest.LastName
+                        </td>
+                        <td>
+                            @guest.Email
+                        </td>
+                        <td>
+                            @guest.PhoneNumber
+                        </td>
+                        <td>
+                            @guest.Nationality
+                        </td>
+                        <td>
+                            @guest.GuestComment
+                        </td>
+                        <td>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" asp-page="/BookingRRC/UpdateGuest" asp-route-id="@guest.GuestNumbe"> <i class="fa fa-edit"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="delete" asp-page="DeleteGuest" asp-route-id="@guest.GuestNumbe"> <i class="fa fa-trash"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Booking" asp-page="/BookingRRC/CreateBookingFromGuest" asp-route-id="@guest.GuestNumbe"> Booking </a>
+                                </li>
+                            </ul>
+
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

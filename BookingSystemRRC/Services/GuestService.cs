@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookingSystemRRC.Models;
+using BookingSystemRRC.MockData;
 
 namespace BookingSystemRRC.Services
 {
@@ -10,12 +11,19 @@ namespace BookingSystemRRC.Services
     {
         private List<Guest> guests;
 
+        //public DbGenericService<Guest> DbService { get; set; }
+
         public DbGenericService<Guest> DbService { get; set; }
 
         public GuestService(DbGenericService<Guest> dbService )
         {
             DbService = dbService;
-            DbService.GetObjectsAsync().Result.ToList();
+            //guests = MockGuest.GetMockGuests();
+            //foreach (Guest guest in guests)
+            //{
+            //    dbService.AddObjectAsync(guest);
+            //}
+            guests = DbService.GetObjectsAsync().Result.ToList();
         }
 
 
@@ -23,7 +31,7 @@ namespace BookingSystemRRC.Services
         {
             foreach (Guest guest in guests)
             {
-                if (guest.GuestNumber == guestNumber)
+                if (guest.GuestNumbe == guestNumber)
                     return guest;
             }
             return null;
@@ -53,7 +61,7 @@ namespace BookingSystemRRC.Services
 
         public async Task DeleteGuestAsync(int guestNumber)
         {
-            Guest GuestToBeDeleted = guests.Find(guest => guest.GuestNumber == guestNumber);
+            Guest GuestToBeDeleted = guests.Find(guest => guest.GuestNumbe == guestNumber);
            
             if (GuestToBeDeleted != null)
             {
@@ -70,9 +78,13 @@ namespace BookingSystemRRC.Services
             {
                 foreach (Guest g in guests)
                 {
-                    if (g.GuestNumber == guest.GuestNumber)
+                    if (g.GuestNumbe == guest.GuestNumbe)
                     {
-                        g.Name = guest.Name;
+                        g.FirstName = guest.FirstName;
+                        g.LastName = guest.LastName;
+                        g.PhoneNumber = guest.PhoneNumber;
+                        g.Email = guest.Email;
+                        g.Nationality = guest.Nationality;
 
                     }
                 }
@@ -82,6 +94,14 @@ namespace BookingSystemRRC.Services
             }
         }
 
+        public IEnumerable<Guest> NameSearch(string str)
+        {
+            if (string.IsNullOrEmpty(str)) return guests;
+            return from guest in guests where guest.FirstName.ToLower().Contains(str.ToLower()) select guest;
+
+        }
+
+      
     }
 
 }

@@ -1,10 +1,9 @@
-﻿@page 
-@model BookingSystemRRC.Pages.BookingRRC.CreateBookingModel
-@using BookingSystemRRC.Models
-
-
-
+﻿@page
+@model BookingSystemRRC.Pages.OnlineBooking.GokartBookingPageModel
 @{
+
+
+
     <h5> Opret en booking </h5>
 
     <div class="row">
@@ -12,24 +11,25 @@
             <form method="post">
                 <div class="input-fields">
 
-                    <div>
-                        <label>Fornavn: </label>
+                    <div class="form-group">
+                        <label>Fornavn </label>
                         <input asp-for="@Model.Guest.FirstName" class="input" />
                         <span asp-validation-for="@Model.Guest.FirstName" class="text-danger"></span>
                     </div>
-                    <div>
+
+                    <div class="form-group">
                         <label>Efternavn </label>
                         <input asp-for="@Model.Guest.LastName" class="input" />
                         <span asp-validation-for="@Model.Guest.LastName" class="text-danger"></span>
                     </div>
 
-                    <div>
+                    <div class="form-group">
                         <label>Email: </label>
                         <input asp-for="@Model.Guest.Email" class="input" />
                         <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
                     </div>
 
-                    <div>
+                    <div class="form-group">
                         <label>vælg dag</label>
                         <select class="form-control" asp-for="Booking.WeekDays">
                             @foreach (var Week in Enum.GetNames(typeof(Models.WeekDays)))
@@ -40,59 +40,33 @@
                     </div>
 
 
-
-                    <div>
-                        <label for="events"> Events: </label>
-                        <select class="form-control" asp-for="Booking.Type">
-                            @foreach (var booking in Enum.GetNames(typeof(Models.BookingEvents)))
-                            {
-                                <option value="@booking">@booking</option>
-                            }
-                        </select>
-                    </div>
-
-                    <div>
+                    <div class="form-group">
                         <label>Nummer: </label>
                         <input asp-for="@Model.Guest.PhoneNumber" class="input" />
                         <span asp-validation-for="@Model.Guest.PhoneNumber" class="text-danger"></span>
                     </div>
 
 
-                    <div>
-                        <label>Land: </label>
-                        <input asp-for="@Model.Guest.Nationality" class="input" />
-                        <span asp-validation-for="@Model.Guest.Nationality" class="text-danger"></span>
-                    </div>
-
-
-                    <div>
-                        <label>Oprettet af: </label>
-                        <input asp-for="@Model.Booking.CreatedBy" class="input" />
-                        <span asp-validation-for="@Model.Booking.CreatedBy" class="text-danger"></span>
-                    </div>
-
-
-                    <div>
+                    <div class="form-group">
                         <label>Antal personer: </label>
                         <input asp-for="@Model.Booking.NumberOfPeople" class="input" />
                         <span asp-validation-for="@Model.Booking.NumberOfPeople" class="text-danger"></span>
                     </div>
 
 
-                    <div>
+                    <div class="form-group">
                         <label>Note: </label>
                         <input asp-for="@Model.Booking.BookingComment" class="input" />
                         <span asp-validation-for="@Model.Booking.BookingComment" class="text-danger"></span>
                     </div>
 
 
-                    <div>
-                        <input type="submit" value="Create" class="btn btn-primary" asp-page="/InternallySystem/EmployeeeCalendar" />
-                        <a class="btn btn-secondary" asp-page="/InternallySystem/EmployeeCalendar"> tilbage </a>
+                    <div class="form-group">
+                        <input type="submit" value="" class="btn btn-primary" />
+
                     </div>
                 </div>
             </form>
         </div>
     </div>
 }
-
