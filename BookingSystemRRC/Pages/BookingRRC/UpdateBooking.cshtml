@@ -9,9 +9,13 @@
     <div class="col-md-4">
         <form method="post">
 
+            <div class="form-group">
+                <label asp-for="@Model.Guest.Name" class="control-label text-white">Gæstens navn</label>
+                <input asp-for="@Model.Guest.Name" class="form-control" />
+            </div>
 
             <div class="form-group">
-                <label asp-for="@Model.Booking.CreatedBy" class="control-label text-white" >Lavet af</label>
+                <label asp-for="@Model.Booking.CreatedBy" class="control-label text-white">Lavet af</label>
                 <input asp-for="@Model.Booking.CreatedBy" class="form-control" />
             </div>
 
@@ -25,10 +29,8 @@
                 <input asp-for="@Model.Booking.BookingComment" class="form-control" />
             </div>
 
-            
             <button type="submit" class="btn btn-primary"> opdater </button>
-               
-            
+            <a class="btn btn-secondary" asp-page="/BookingRRC/BookingAcceptance"> tilbage </a>
         </form>
     </div>
 </div>

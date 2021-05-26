@@ -29,7 +29,10 @@ namespace BookingSystemRRC.Models
         public TimeSlotBooking.DaysOfWeek WeekDays { get; set; }
 
         [Required]
-        public DateTime DateTime { get; set; }
+        public DateTime DateTimeStart { get; set; }
+
+        [Required]
+        public DateTime DateTimeEnd { get; set; }
 
 
         public Guest Guest { get; set; }
@@ -44,7 +47,7 @@ namespace BookingSystemRRC.Models
             // Default Constructor (takes no parameters)
         }
 
-        public Booking( int numberOfPeople, int totalprice, string type, string bookingComemnt, string createdBy, TimeSlotBooking.DaysOfWeek weekDays, DateTime dateTime)
+        public Booking( int numberOfPeople, int totalprice, string type, string bookingComemnt, string createdBy, TimeSlotBooking.DaysOfWeek weekDays, DateTime dateTimeStart, DateTime dateTimeEnd)
         {
             BookingNumber = Nextbookingnumber++;
             NumberOfPeople = numberOfPeople;
@@ -52,6 +55,8 @@ namespace BookingSystemRRC.Models
             Type = type;
             BookingComment = bookingComemnt;
             CreatedBy = createdBy;
+            DateTimeStart = dateTimeStart;
+            DateTimeEnd = dateTimeEnd;
         }
     }
 }
