@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!DOCTYPE html>
 
-    <h1>ADMINISTRER BRUGERE</h1>
+    <h2>ADMINISTRER BRUGERE</h2>
+    
+    <a class="btn btn-primary" type="button" asp-page="/Admin/CreateUser"> Opret bruger </a>
+    
     <table style="width: 100%">
         <tr>
             <th>Username</th>
@@ -15,13 +18,12 @@
         {
             <tr>
                 <td>@user.Username</td>
-                @*<td>
-
-                        <button class="btn"><a class="Deletebtn" asp-route-Mail="@Jesper.Mail" asp-page="/Admin/DeleteUser"><i class="fa fa-trash"></i></a></button>
-                        <button class="btn"><a class="Editbtn" asp-route-Mail="@Jesper.Mail" asp-page="/Admin/EditUser"><i class="fa fa-edit"></i></a></button>
-
-
-                    </td>*@
+                <td>
+                    <a type="button" asp-page="/Admin/DeleteUser" asp-route-id="@user.Id"><i class="fa fa-trash"></i></a>
+                    @*<a type="button" asp-page="DeleteUserStory" asp-route-id="@Model.UserStory.Id"><i class="fa fa-trash"></i></a>
+                    <button class="btn"><a class="Deletebtn" asp-route-Mail="@Jesper" asp-page="/Admin/DeleteUser"><i class="fa fa-trash"></i></a></button>
+                    <button class="btn"><a class="Editbtn" asp-route-Mail="@Jesper.Mail" asp-page="/Admin/EditUser"><i class="fa fa-edit"></i></a></button>*@
+                </td>
             </tr>
         }
 

@@ -25,7 +25,10 @@ namespace BookingSystemRRC.Models
         public WeekDays WeekDays { get; set; }
 
         [Required]
-        public DateTime DateTime { get; set; }
+        public DateTime DateTimeStart { get; set; }
+
+        [Required]
+        public DateTime DateTimeEnd { get; set; }
 
  
         public Guest Guest { get; set; }
@@ -48,6 +51,8 @@ namespace BookingSystemRRC.Models
             Type = type;
             BookingComment = bookingComemnt;
             CreatedBy = createdBy;
+            DateTimeStart = dateTimeStart;
+            DateTimeEnd = dateTimeEnd;
         }
     }
 }

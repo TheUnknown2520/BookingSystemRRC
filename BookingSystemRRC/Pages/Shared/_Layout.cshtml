@@ -21,7 +21,7 @@
 
 
             @{
-                if (Context.User.Identity.Name == null)
+                if (Context.User.Identity.Name == null) //Viser RRC's hjemmeside
                 {
                     <a asp-area="" asp-page="/Index">BANEN</a>
 
@@ -41,7 +41,7 @@
 
                     <a asp-area="" asp-page="/LogInSystem/LogIn"><strong>LOG IND</strong></a>
                 }
-                else
+                else //Viser det interne system, når en medarbejder er logget ind
                 {
                     <a asp-area="" asp-page="/InternallySystem/EmployeeCalendar">KALENDER</a>
 
@@ -50,10 +50,10 @@
                     <a asp-area="" asp-page="/BookingRRC/GuestsList"> GÆSTER </a>
 
 
-                    if (Context.User.Identity != null && Context.User.Identity.Name == "Jesper")
-                    {
-                        <a asp-area="" asp-page="/Admin/ManageUser">ADMINISTRER BRUGERE</a>
-                    }
+                        if (Context.User.Identity != null && Context.User.Identity.Name == "Jesper") //Viser en side, hvorfra systemets brugere kan administreres, som kun Admin har adgang til
+                        {
+                            <a asp-area="" asp-page="/Admin/ManageUser">ADMINISTRER BRUGERE</a>
+                        }
 
 
                     <a asp-area="" asp-page="/LogInSystem/LogOut"><strong>LOG UD</strong></a>

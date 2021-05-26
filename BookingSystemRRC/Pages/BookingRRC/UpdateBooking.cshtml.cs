@@ -11,13 +11,12 @@ namespace BookingSystemRRC.Pages.BookingRRC
     public class UpdateBookingModel : PageModel
     {
         private BookingService bookingService;
-
         public Models.Booking Booking { get; set; }
+        public Models.Guest Guest { get; set; }
 
         public UpdateBookingModel(BookingService bookingService)
         {
             this.bookingService = bookingService;
-
         }
 
         public IActionResult OnGet(int id)
@@ -37,6 +36,6 @@ namespace BookingSystemRRC.Pages.BookingRRC
             await bookingService.UpdateBookingAsync(Booking);
             return RedirectToPage("/BookingRRC/BookingAcceptance");
         }
-     
+
     }
 }
