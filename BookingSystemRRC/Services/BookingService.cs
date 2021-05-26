@@ -16,7 +16,7 @@ namespace BookingSystemRRC.Services
 
         public BookingService(DbGenericService<Booking> dbService)
         {
-            DbService = dbService;
+            //DbService = dbService;
             //bookings = MockBooking.GetMockBookings();
             //foreach (Booking booking in bookings)
             //{

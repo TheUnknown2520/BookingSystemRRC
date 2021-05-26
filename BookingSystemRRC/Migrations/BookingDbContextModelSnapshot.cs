@@ -92,17 +92,21 @@ namespace BookingSystemRRC.Migrations
 
             modelBuilder.Entity("BookingSystemRRC.Models.User", b =>
                 {
-                    b.Property<string>("Username")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("Username");
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });

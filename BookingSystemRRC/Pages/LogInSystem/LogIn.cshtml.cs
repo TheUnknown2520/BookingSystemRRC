@@ -32,8 +32,7 @@ namespace BookingSystemRRC.Pages.LogInSystem
 
         public string Message { get; set; }
         
-        /*Tjekker username og password ud fra en liste af users, for at tjekke om det indskrevne i input feltet stemmer over ens med en user i listen.
-          Passer username og password på en user i listen, logges brugeren ind i systemet.*/
+   
         public async Task<IActionResult> OnPost()
         {
             List<User> users = _userService.users;
@@ -49,8 +48,6 @@ namespace BookingSystemRRC.Pages.LogInSystem
                         {
                             new Claim(ClaimTypes.Name, Username)
                         };
-                        /*Brugernavnet 'Jesper' tildeles en speciel rolle, som vil fungere som vores admin. Der tjekkes for det specifikke brugernavn, og stemmer dette over ens,
-                         kan denne specifikke bruger opnå adgang til særligt tildelte sider i systemet.*/
                         if (Username == "Jesper") claims.Add(new Claim(ClaimTypes.Role, "Jesper"));
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
@@ -59,7 +56,7 @@ namespace BookingSystemRRC.Pages.LogInSystem
                     }
                 }
             }
-            /*Hvis enten username eller brugernavn ikke stemmer over ens med en bruger i systemet, returneres denne message, og der gives ikke adgang til systemet.*/
+            
             Message = "Forkert brugernavn eller adgangskode";
             return Page();
         }

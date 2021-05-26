@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingSystemRRC.Migrations
 {
     [DbContext(typeof(BookingDbContext))]
-    [Migration("20210525112321_BookingSystemRRC")]
+    [Migration("20210526084955_BookingSystemRRC")]
     partial class BookingSystemRRC
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,7 +36,10 @@ namespace BookingSystemRRC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateTime")
+                    b.Property<DateTime>("DateTimeEnd")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateTimeStart")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("GuestNumber")
