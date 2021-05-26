@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingSystemRRC.Migrations
 {
     [DbContext(typeof(BookingDbContext))]
-    [Migration("20210525112321_BookingSystemRRC")]
+    [Migration("20210526091345_BookingSystemRRC")]
     partial class BookingSystemRRC
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,10 +36,16 @@ namespace BookingSystemRRC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateTime")
+                    b.Property<DateTime>("DateTimeEnd")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("GuestNumber")
+                    b.Property<DateTime>("DateTimeStart")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("GuestNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GuestNumber1")
                         .HasColumnType("int");
 
                     b.Property<int>("NumberOfPeople")
@@ -57,7 +63,7 @@ namespace BookingSystemRRC.Migrations
 
                     b.HasKey("BookingNumber");
 
-                    b.HasIndex("GuestNumber");
+                    b.HasIndex("GuestNumber1");
 
                     b.ToTable("Bookings");
                 });
@@ -114,7 +120,7 @@ namespace BookingSystemRRC.Migrations
                 {
                     b.HasOne("BookingSystemRRC.Models.Guest", "Guest")
                         .WithMany("Bookings")
-                        .HasForeignKey("GuestNumber");
+                        .HasForeignKey("GuestNumber1");
 
                     b.Navigation("Guest");
                 });

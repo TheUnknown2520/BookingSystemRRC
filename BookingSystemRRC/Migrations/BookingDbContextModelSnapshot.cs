@@ -40,7 +40,10 @@ namespace BookingSystemRRC.Migrations
                     b.Property<DateTime>("DateTimeStart")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("GuestNumber")
+                    b.Property<int>("GuestNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GuestNumber1")
                         .HasColumnType("int");
 
                     b.Property<int>("NumberOfPeople")
@@ -58,7 +61,7 @@ namespace BookingSystemRRC.Migrations
 
                     b.HasKey("BookingNumber");
 
-                    b.HasIndex("GuestNumber");
+                    b.HasIndex("GuestNumber1");
 
                     b.ToTable("Bookings");
                 });
@@ -92,17 +95,21 @@ namespace BookingSystemRRC.Migrations
 
             modelBuilder.Entity("BookingSystemRRC.Models.User", b =>
                 {
-                    b.Property<string>("Username")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("Username");
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
@@ -111,7 +118,7 @@ namespace BookingSystemRRC.Migrations
                 {
                     b.HasOne("BookingSystemRRC.Models.Guest", "Guest")
                         .WithMany("Bookings")
-                        .HasForeignKey("GuestNumber");
+                        .HasForeignKey("GuestNumber1");
 
                     b.Navigation("Guest");
                 });

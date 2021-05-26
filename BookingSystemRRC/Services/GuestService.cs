@@ -15,11 +15,11 @@ namespace BookingSystemRRC.Services
         public GuestService(DbGenericService<Guest> dbService )
         {
             DbService = dbService;
-            DbService.GetObjectsAsync().Result.ToList();
+            guests = DbService.GetObjectsAsync().Result.ToList();
         }
 
 
-        public Guest GetGuest(int guestNumber)
+        public Guest GetGuests(int guestNumber)
         {
             foreach (Guest guest in guests)
             {

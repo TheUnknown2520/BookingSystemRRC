@@ -27,12 +27,14 @@ namespace BookingSystemRRC.Migrations
                 name: "Users",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Username);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,23 +51,24 @@ namespace BookingSystemRRC.Migrations
                     WeekDays = table.Column<int>(type: "int", nullable: false),
                     DateTimeStart = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateTimeEnd = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    GuestNumber = table.Column<int>(type: "int", nullable: true)
+                    GuestNumber = table.Column<int>(type: "int", nullable: false),
+                    GuestNumber1 = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bookings", x => x.BookingNumber);
                     table.ForeignKey(
-                        name: "FK_Bookings_Guests_GuestNumber",
-                        column: x => x.GuestNumber,
+                        name: "FK_Bookings_Guests_GuestNumber1",
+                        column: x => x.GuestNumber1,
                         principalTable: "Guests",
                         principalColumn: "GuestNumber",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Bookings_GuestNumber",
+                name: "IX_Bookings_GuestNumber1",
                 table: "Bookings",
-                column: "GuestNumber");
+                column: "GuestNumber1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -34,11 +34,13 @@ namespace BookingSystemRRC
             services.AddDbContext < BookingDbContext>();
             services.AddSingleton<BookingService, BookingService>();
             services.AddSingleton<UserService, UserService>();
+            services.AddSingleton<GuestService, GuestService>();
             //services.AddSingleton<DbService, DbService>();
-            services.AddSingleton<DbGenericService<Booking>, DbGenericService<Booking>>();
-            services.AddSingleton<DbGenericService<Guest>, DbGenericService<Guest>>();
-            services.AddSingleton<DbGenericService<TimeSlotBooking>, DbGenericService<TimeSlotBooking>>();
+            services.AddTransient<DbGenericService<Booking>, DbGenericService<Booking>>();
+            services.AddTransient<DbGenericService<Guest>, DbGenericService<Guest>>();
+            services.AddTransient<DbGenericService<TimeSlotBooking>, DbGenericService<TimeSlotBooking>>();
             services.AddTransient<DbGenericService<User>, DbGenericService<User>>();
+            
 
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions =>
