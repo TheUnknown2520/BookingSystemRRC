@@ -26,14 +26,15 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @DateTime.Now </h5>
-                                        <div class="card-body">
+                                    <h5 class="card-title"> @bookings.DateTimeStart </h5>
+                                    <h3 class="card-title"> </h3>
+                                    <div class="card-body">
                                         <p class="card-text"> @bookings.BookingComment </p>
-                                        </div>
+                                    </div>
                                 </div>
                                     <div class="card-footer">
                                         <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
-                                        <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                        <a style="float:right" class="btn" type="button" asp-page="/BookingRRC/UpdateBooking" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
                                     </div>
                             </div>
                         }
@@ -49,7 +50,8 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @DateTime.Now </h5>
+                                    <h5 class="card-title"> @bookings.DateTimeStart </h5>
+                                    
                                     <div class="card-body">
                                         <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
@@ -57,7 +59,7 @@
                                 <div class="card-footer">
                                     <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-left"></i></a>
                                     <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
-                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="/InternallySystem/EmployeeEditBooking" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
                                 </div>
                             </div>
                         }
@@ -73,7 +75,7 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @DateTime.Now </h5>
+                                    <h5 class="card-title"> @bookings.DateTimeStart </h5>
                                     <div class="card-body">
                                         <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
@@ -81,7 +83,7 @@
                                 <div class="card-footer">
                                     <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-left"></i></a>
                                     <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
-                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="/InternallySystem/EmployeeEditBooking" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
                                 </div>
                             </div>
                         }
@@ -97,7 +99,7 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @DateTime.Now </h5>
+                                    <h5 class="card-title"> @bookings.DateTimeStart </h5>
                                     <div class="card-body">
                                         <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
@@ -105,7 +107,7 @@
                                 <div class="card-footer">
                                     <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-left"></i></a>
                                     <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
-                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="/InternallySystem/EmployeeEditBooking" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
                                 </div>
                             </div>
                         }
@@ -121,7 +123,7 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @DateTime.Now </h5>
+                                    <h5 class="card-title"> @bookings.DateTimeStart </h5>
                                     <div class="card-body">
                                         <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
@@ -129,7 +131,7 @@
                                 <div class="card-footer">
                                     <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-left"></i></a>
                                     <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
-                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="/InternallySystem/EmployeeEditBooking" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
                                 </div>
                             </div>
                         }
@@ -145,7 +147,7 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @DateTime.Now </h5>
+                                    <h5 class="card-title"> @bookings.DateTimeStart </h5>
                                     <div class="card-body">
                                         <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
@@ -153,7 +155,7 @@
                                 <div class="card-footer">
                                     <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-left"></i></a>
                                     <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
-                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="/InternallySystem/EmployeeEditBooking" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
                                 </div>
                             </div>
                         }
@@ -169,14 +171,14 @@
                         {
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
-                                    <h5 class="card-title"> @DateTime.Now </h5>
+                                    <h5 class="card-title"> @bookings.DateTimeStart </h5>
                                     <div class="card-body">
                                         <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
                                     <a class="btn" type="button" asp-page-handler="MoveBookingLeft" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-left"></i></a>
-                                    <a style="float:right" class="btn" type="button" asp-page="BookingDetail" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="/InternallySystem/EmployeeEditBooking" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
                                 </div>
                             </div>
                         }
