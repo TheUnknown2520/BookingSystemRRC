@@ -44,6 +44,7 @@ namespace BookingSystemRRC
             
 
 
+
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions =>
             {
                 cookieOptions.LoginPath = "/Login/LoginPage";

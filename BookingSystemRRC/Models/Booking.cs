@@ -31,6 +31,8 @@ namespace BookingSystemRRC.Models
         public DateTime DateTimeEnd { get; set; }
 
  
+        [Required]
+        public int GuestNumber { get; set; }
         public Guest Guest { get; set; }
 
 
