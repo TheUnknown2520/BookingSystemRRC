@@ -4,15 +4,18 @@
     
 
     <div class="row">
-        <br />
-        <br />
+        
         <header class="container-fluid">
             <div>
+                <br />
+                <br />
+
                 <nav>
                     <a class="btn btn-primary" type="button" asp-page="/BookingRRC/CreateGuest"> Create Guest </a>
                     <a class="btn btn-primary" type="button" asp-page="/BookingRRC/CreateBooking"> Create Booking </a>
                     <button class="btn btn-primary"> Check in </button>
                 </nav>
+                <br />
             </div>
         </header>
 
@@ -33,10 +36,10 @@
                                         <p class="card-text"> @bookings.BookingComment </p>
                                     </div>
                                 </div>
-                                    <div class="card-footer">
-                                        <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
-                                        <a style="float:right" class="btn" type="button" asp-page="/BookingRRC/UpdateBooking" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
-                                    </div>
+                                <div class="card-footer">
+                                    <a class="btn" type="button" asp-page-handler="MoveBookingRight" asp-route-id="@bookings.BookingNumber"><i class="fa fa-arrow-circle-right"></i></a>
+                                    <a style="float:right" class="btn" type="button" asp-page="/BookingRRC/UpdateBooking" asp-route-id="@bookings.BookingNumber"><i class="fa fa-info-circle"></i></a>
+                                </div>
                             </div>
                         }
                     }
@@ -52,7 +55,7 @@
                             <div class="card mb-3" style="max-width: 20rem">
                                 <div class="card-header">
                                     <h5 class="card-title"> @bookings.DateTimeStart </h5>
-                                    
+
                                     <div class="card-body">
                                         <p class="card-text"> @bookings.BookingComment </p>
                                     </div>

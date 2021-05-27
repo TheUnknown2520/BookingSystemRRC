@@ -42,9 +42,6 @@ namespace BookingSystemRRC.Migrations
                     b.Property<int?>("GuestNumbe")
                         .HasColumnType("int");
 
-                    b.Property<int>("GuestNumber")
-                        .HasColumnType("int");
-
                     b.Property<int>("NumberOfPeople")
                         .HasColumnType("int");
 

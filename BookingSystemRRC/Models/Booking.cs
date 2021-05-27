@@ -30,9 +30,9 @@ namespace BookingSystemRRC.Models
         [Required]
         public DateTime DateTimeEnd { get; set; }
 
- 
-        [Required]
-        public int GuestNumber { get; set; }
+
+        //[Required]
+        //public int GuestNumber { get; set; }
         public Guest Guest { get; set; }
 
 

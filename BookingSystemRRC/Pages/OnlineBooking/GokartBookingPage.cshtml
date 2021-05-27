@@ -4,161 +4,100 @@
 
 
 
-    @*<h5> Opret en booking </h5>
+  
 
-    <div class="row">
-        <div class="col-3">
-            <form method="post">
-                <div class="input-fields">
+       <div class="row">
+           <div class="col-75">
+               <br />
+               <br />
+               <div id="myContainer2">
+                   <form method="post">
 
-                    <div class="form-group">
-                        <label>Fornavn </label>
-                        <input asp-for="@Model.Guest.FirstName" class="input" />
-                        <span asp-validation-for="@Model.Guest.FirstName" class="text-danger"></span>
-                    </div>
+                       <div class="row">
+                           <div class="col-50">
+                               <h3>Kunde oplysninger</h3>
+                               <label for="fname"><i class="fa fa-user"></i> Fornavn</label>
+                               <input type="text" asp-for="@Model.Guest.FirstName" id="fname" placeholder="John">
+                               <span asp-validation-for="@Model.Guest.FirstName" class="text-danger"></span>
 
-                    <div class="form-group">
-                        <label>Efternavn </label>
-                        <input asp-for="@Model.Guest.LastName" class="input" />
-                        <span asp-validation-for="@Model.Guest.LastName" class="text-danger"></span>
-                    </div>
+                               <label for="lname"><i class="fa fa-user"></i> Efternavn</label>
+                               <input type="text" asp-for="@Model.Guest.LastName" id="lname" placeholder="Johnson">
+                               <span asp-validation-for="@Model.Guest.LastName" class="text-danger"></span>
 
-                    <div class="form-group">
-                        <label>Email: </label>
-                        <input asp-for="@Model.Guest.Email" class="input" />
-                        <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
-                    </div>
+                               <label for="phonenr"><i class="bi bi-phone-fill"></i> Telefon</label>
+                               <input type="text" asp-for="@Model.Guest.PhoneNumber" id="phonenr" placeholder="12345678">
+                               <span asp-validation-for="@Model.Guest.PhoneNumber"></span>
 
-                    <div class="form-group">
-                        <label>vælg dag</label>
-                        <select class="form-control" asp-for="Booking.WeekDays">
-                            @foreach (var Week in Enum.GetNames(typeof(Models.WeekDays)))
-                            {
-                                <option value="@Week">@Week</option>
-                            }
-                        </select>
-                    </div>
+                               <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                               <input type="text" asp-for="@Model.Guest.Email" id="email" placeholder="John@Johnson.com">
+                               <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
 
+                               <label for="nationality"><i class="fa fa-institution"></i> Nationalitet</label>
+                               <input type="text" asp-for="@Model.Guest.Nationality" id="nationality" placeholder="United Kingdom">
+                               <span asp-validation-for="@Model.Guest.Nationality"></span>
+                           </div>
 
-                    <div class="form-group">
-                        <label>Nummer: </label>
-                        <input asp-for="@Model.Guest.PhoneNumber" class="input" />
-                        <span asp-validation-for="@Model.Guest.PhoneNumber" class="text-danger"></span>
-                    </div>
+                           <div class="col-50">
+                               <h3>Booking</h3>
+
+                               <label for="persons"><i class="bi bi-people-fill"></i> Antal personer </label>
+                               <input type="text" asp-for="@Model.Booking.NumberOfPeople" id="fname" />
+                               <span asp-validation-for="@Model.Booking.NumberOfPeople" class="text-danger"></span>
 
 
-                    <div class="form-group">
-                        <label>Antal personer: </label>
-                        <input asp-for="@Model.Booking.NumberOfPeople" class="input" />
-                        <span asp-validation-for="@Model.Booking.NumberOfPeople" class="text-danger"></span>
-                    </div>
+                               <div class="row">
+                                   <div class="col-50">
+                                       <label for="tid"><i class="bi bi-clock-fill"></i> Start tid</label>
+                                       <input type="datetime-local" asp-for="@Model.Booking.DateTimeStart" id="fname" />
+                                       <span asp-validation-for="@Model.Booking.DateTimeStart"></span>
+
+                                   </div>
+                                   <div class="col-50">
+                                       <label for="tid"><i class="bi bi-clock-fill"></i> Slut tid </label>
+                                       <input type="datetime-local" asp-for="@Model.Booking.DateTimeEnd" id="fname" />
+                                       <span asp-validation-for="@Model.Booking.DateTimeEnd" class="text-danger"></span>
+                                   </div>
+
+                               </div>
+
+                               <div class="row">
+                                   <div class="col-50">
+                                       <label for="day"><i class="bi bi-calendar2-date-fill"></i> Ugedag</label>
+                                       <select id="fname" for="Wek" asp-for="Booking.WeekDays">
+                                           @foreach (var Week in Enum.GetNames(typeof(Models.WeekDays)))
+                                           {
+                                               <option value="@Week">@Week</option>
+}
+                                       </select>
+                                   </div>
+                                   <div class="col-50">
+                                       @*<label class="label" for="events">Kategori: </label>
+                                <select id="fname" type="select" asp-for="Booking.Type">
+                                    @foreach (var booking in Enum.GetNames(typeof(Models.BookingEvents)))
+                                    {
+                                     <option value="@booking">@booking</option>
+                                     }
+                                </select>*@
+                                   </div>
+                               </div>
+
+                               <label class="label">Kommentar </label>
+                               <textarea placeholder="Kommentar" asp-for="@Model.Booking.BookingComment" id="fname"></textarea>
+                               <span asp-validation-for="@Model.Booking.BookingComment" class="text-danger"></span>
 
 
-                    <div class="form-group">
-                        <label>Note: </label>
-                        <input asp-for="@Model.Booking.BookingComment" class="input" />
-                        <span asp-validation-for="@Model.Booking.BookingComment" class="text-danger"></span>
-                    </div>
+                           </div>
 
+                       </div>
 
-                    <div class="form-group">
-                        <input type="submit" value="" class="btn btn-primary" />
+                       <div class="form-group">
+                           <input type="submit" value="Opret" class="btn btn-primary" asp-page="/OnlineBooking/Thanks" />
 
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>*@
+                       </div>
 
-              <div class="row">
-        <div class="col-75">
-            <div id="myContainer2">
-                <form method="post">
-
-                    <div class="row">
-                        <div class="col-50">
-                            <h3>Kunde oplysninger</h3>
-                            <label for="fname"><i class="fa fa-user"></i> Fornavn</label>
-                            <input type="text" asp-for="@Model.Guest.FirstName" id="fname" placeholder="John">
-                            <span asp-validation-for="@Model.Guest.FirstName" class="text-danger"></span>
-
-                            <label for="lname"><i class="fa fa-user"></i> Efternavn</label>
-                            <input type="text" asp-for="@Model.Guest.LastName" id="lname" placeholder="Johnson">
-                            <span asp-validation-for="@Model.Guest.LastName" class="text-danger"></span>
-
-                            <label for="phonenr"><i class="bi bi-phone-fill"></i> Telefon</label>
-                            <input type="text" asp-for="@Model.Guest.PhoneNumber" id="phonenr" placeholder="12345678">
-                            <span asp-validation-for="@Model.Guest.PhoneNumber"></span>
-
-                            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                            <input type="text" asp-for="@Model.Guest.Email" id="email" placeholder="John@Johnson.com">
-                            <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
-
-                            <label for="nationality"><i class="fa fa-institution"></i> Nationalitet</label>
-                            <input type="text" asp-for="@Model.Guest.Nationality" id="nationality" placeholder="United Kingdom">
-                            <span asp-validation-for="@Model.Guest.Nationality"></span>
-                        </div>
-
-                        <div class="col-50">
-                            <h3>Booking</h3>
-
-                            <label for="persons"><i class="bi bi-people-fill"></i> Antal personer </label>
-                            <input type="text" asp-for="@Model.Booking.NumberOfPeople" id="fname" />
-                            <span asp-validation-for="@Model.Booking.NumberOfPeople" class="text-danger"></span>
-
-
-                            <div class="row">
-                                <div class="col-50">
-                                    <label for="tid"><i class="bi bi-clock-fill"></i> Start tid</label>
-                                    <input type="datetime-local" asp-for="@Model.Booking.DateTimeStart" id="fname" />
-                                    <span asp-validation-for="@Model.Booking.DateTimeStart"></span>
-
-                                </div>
-                                <div class="col-50">
-                                    <label for="tid"><i class="bi bi-clock-fill"></i> Slut tid </label>
-                                    <input type="datetime-local" asp-for="@Model.Booking.DateTimeEnd" id="fname" />
-                                    <span asp-validation-for="@Model.Booking.DateTimeEnd" class="text-danger"></span>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-50">
-                                    <label for="day"><i class="bi bi-calendar2-date-fill"></i> Ugedag</label>
-                                    <select id="fname" for="Wek" asp-for="Booking.WeekDays">
-                                        @foreach (var Week in Enum.GetNames(typeof(Models.WeekDays)))
-                                        {
-                            <option value="@Week">@Week</option>}
-                                    </select>
-                                </div>
-                                <div class="col-50">
-                                    @*<label class="label" for="events">Kategori: </label>
-                <select id="fname" type="select" asp-for="Booking.Type">
-                    @foreach (var booking in Enum.GetNames(typeof(Models.BookingEvents)))
-                    {
-                     <option value="@booking">@booking</option>
-                     }
-                </select>*@
-                                </div>
-                            </div>
-
-                            <label class="label">Kommentar </label>
-                            <textarea placeholder="Kommentar" asp-for="@Model.Booking.BookingComment" id="fname"></textarea>
-                            <span asp-validation-for="@Model.Booking.BookingComment" class="text-danger"></span>
-
-
-                        </div>
-
-                    </div>
-
-                    <div class="form-group">
-                        <input type="submit" value="Opret" class="btn btn-primary" asp-page="/OnlineBooking/Thanks" />
-                    
-                    </div>
-
-                </form>
-            </div>
-        </div>
+                   </form>
+               </div>
+           </div>
 
       
     </div>

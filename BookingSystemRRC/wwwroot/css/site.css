@@ -185,35 +185,8 @@ li {
 
 /*#endregion Calendar*/
 
-/*input Create booking*/
 
 
-/*
-.texted {
-    color: #ff540a;
-}
-
-input, select, textarea {
-    width: 195px;
-    border: 1px solid #ff540a;
-    -ms-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-}
-
-textarea {
-    overflow-y: scroll;
-    resize: none;
-    
-}
-
-.label {
-    color: #ff540a;
-    display: inline-block;
-    text-align: right;
-}
-*/
 /*#region Navigation-bar*/
 
 /* Add a black background color to the top navigation */
@@ -354,9 +327,9 @@ textarea {
 
 /*Create booking*/
 .row {
-    display: -ms-flexbox; /* IE10 */
+    display: -ms-flexbox; 
     display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
+    -ms-flex-wrap: wrap; 
     flex-wrap: wrap;
     margin: 0 -16px;
 }
@@ -364,12 +337,12 @@ textarea {
 
 
 .col-50 {
-    -ms-flex: 50%; /* IE10 */
+    -ms-flex: 50%; 
     flex: 50%;
 }
 
 .col-75 {
-    -ms-flex: 75%; /* IE10 */
+    -ms-flex: 75%; 
     flex: 75%;
 }
 
@@ -380,17 +353,17 @@ textarea {
 }
 
 #myContainer2 {
-    background-color: #f2f2f2;
+  /*  background-color: #f2f2f2;*/
     padding: 5px 20px 15px 20px;
-    border: 1px solid lightgrey;
+   /* border: 1px solid lightgrey;*/
     border-radius: 3px;
   
 }
 
 #myContainer2 {
-    background-color: #f2f2f2;
+   /* background-color: #f2f2f2;*/
     padding: 5px 20px 15px 20px;
-    border: 1px solid lightgrey;
+   /* border: 1px solid lightgrey;*/
     border-radius: 3px;
 }
 
@@ -491,8 +464,8 @@ label {
     width: 350px;
     margin: 7% auto;
     border-radius: 25px;
-    background-color: rgba(0,0,0,0.2);
-    box-shadow: 0 0 17px #333;
+   /* background-color: rgba(0,0,0,0.5);*/
+  /*  box-shadow: 0 0 17px #333;*/
 }
 
 #myHeader2 {
