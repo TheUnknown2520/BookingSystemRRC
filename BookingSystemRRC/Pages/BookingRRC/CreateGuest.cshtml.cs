@@ -28,7 +28,7 @@ namespace BookingSystemRRC.Pages.BookingRRC
             return Page();
         }
 
-        public async Task<IActionResult> onPost()
+        public async Task<IActionResult> OnPost()
         {
             if (!ModelState.IsValid)
             {

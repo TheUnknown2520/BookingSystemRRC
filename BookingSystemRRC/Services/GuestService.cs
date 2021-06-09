@@ -27,7 +27,7 @@ namespace BookingSystemRRC.Services
         }
 
 
-        public Guest GetGuests(int guestNumber)
+        public Guest GetGuest(int guestNumber)
         {
             foreach (Guest guest in guests)
             {
