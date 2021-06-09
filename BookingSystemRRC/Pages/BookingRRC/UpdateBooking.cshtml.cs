@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BookingSystemRRC.Services;
+using BookingSystemRRC.Models;
 
 namespace BookingSystemRRC.Pages.BookingRRC
 {
@@ -26,14 +27,14 @@ namespace BookingSystemRRC.Pages.BookingRRC
 
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPost(Booking booking)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return Page();
             }
-
-            await bookingService.UpdateBookingAsync(Booking);
+          
+            await bookingService.UpdateBookingAsync(booking);
             return RedirectToPage("/BookingRRC/BookingAcceptance");
         }
 

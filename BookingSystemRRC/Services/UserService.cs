@@ -16,14 +16,13 @@ namespace BookingSystemRRC.Services
         public UserService(DbGenericService<User> dbService)
         {
             DbService = dbService;
-            //users = MockUser.GetMockUsers();
-            users = DbService.GetObjectsAsync().Result.ToList();
+            users = MockUser.GetMockUsers();
+            //users = DbService.GetObjectsAsync().Result.ToList();
             //DbService.SaveUsers(users);
-
-            //foreach (User user in users)
-            //{
-            //    DbService.AddObjectAsync(user);
-            //}
+            foreach (User user in users)
+            {
+                DbService.AddObjectAsync(user);
+            }
         }
 
         public async Task AddUserAsync(User user)

@@ -88,7 +88,8 @@ namespace BookingSystemRRC.Services
                         b.BookingComment = booking.BookingComment;
                         b.Type = booking.Type;
                         b.WeekDays = booking.WeekDays;
-                        
+                        b.DateTimeStart = booking.DateTimeStart;
+                        b.DateTimeEnd = booking.DateTimeEnd;
                     }
                 }
 
@@ -114,9 +115,6 @@ namespace BookingSystemRRC.Services
             await DbService.UpdateObjectAsync(booking);
         }
 
-    
-
-       
 
         public IEnumerable<Booking> SortByID()
         {
