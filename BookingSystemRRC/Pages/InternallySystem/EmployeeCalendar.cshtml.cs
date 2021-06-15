@@ -33,16 +33,16 @@ namespace BookingSystemRRC.Pages.InternallySystem
         }
 
 
-        public void OnGetMoveBookingLeft(int id)
-        {
-            bookingService.MoveBookingLeft(id);
-            OnGet();
-        }
-        public void OnGetMoveBookingRight(int id)
-        {
-            bookingService.MoveBookingRight(id);
-            OnGet();
-        }
+        //public void OnGetMoveBookingLeft(int id)
+        //{
+        //    bookingService.MoveBookingLeft(id);
+        //    OnGet();
+        //}
+        //public void OnGetMoveBookingRight(int id)
+        //{
+        //    bookingService.MoveBookingRight(id);
+        //    OnGet();
+        //}
 
         public async Task<IActionResult> OnPost()
         {
