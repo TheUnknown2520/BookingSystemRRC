@@ -15,6 +15,7 @@ namespace BookingSystemRRC.Services
         public RoomBookingService(DbGenericService<RoomBooking> dbService)
         {
             DbService = dbService;
+            
 
         }
 

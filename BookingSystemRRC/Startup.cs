@@ -36,12 +36,13 @@ namespace BookingSystemRRC
             services.AddSingleton<UserService, UserService>();
             services.AddSingleton<RoomBookingService, RoomBookingService>();
             services.AddSingleton<GuestService, GuestService>();
+          
             //services.AddSingleton<DbService, DbService>();
             services.AddTransient<DbGenericService<Booking>, DbGenericService<Booking>>();
             services.AddTransient<DbGenericService<Guest>, DbGenericService<Guest>>();
             services.AddTransient<DbGenericService<User>, DbGenericService<User>>();
             services.AddTransient<DbGenericService<RoomBooking>, DbGenericService<RoomBooking>>();
-            
+        
 
 
 

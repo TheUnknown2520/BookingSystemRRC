@@ -12,8 +12,10 @@ namespace BookingSystemRRC.Pages.BookingRRC
     public class UpdateBookingModel : PageModel
     {
         private BookingService bookingService;
+
+        [BindProperty]
         public Models.Booking Booking { get; set; }
-        public Models.Guest Guest { get; set; }
+       
 
         public UpdateBookingModel(BookingService bookingService)
         {
@@ -23,19 +25,25 @@ namespace BookingSystemRRC.Pages.BookingRRC
         public IActionResult OnGet(int id)
         {
             Booking = bookingService.GetBooking(id);
+            if (Booking == null)
+                return RedirectToPage("/NotFound");
+
             return Page();
 
         }
 
-        public async Task<IActionResult> OnPost(Booking booking)
+        public async Task<IActionResult> OnPost(int id)
         {
+            //Booking = bookingService.GetBooking(id);
             if (!ModelState.IsValid)
             {
+               
                 return Page();
             }
-          
-            await bookingService.UpdateBookingAsync(booking);
+
+            await bookingService.UpdateBookingAsync(Booking);
             return RedirectToPage("/BookingRRC/BookingAcceptance");
+
         }
 
     }

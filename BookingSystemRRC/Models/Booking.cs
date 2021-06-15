@@ -31,8 +31,8 @@ namespace BookingSystemRRC.Models
         public DateTime DateTimeEnd { get; set; }
 
 
-        //[Required]
-        //public int GuestNumber { get; set; }
+        [Required]
+        public int GuestNumber { get; set; }
         public Guest Guest { get; set; }
 
 
@@ -55,6 +55,7 @@ namespace BookingSystemRRC.Models
             CreatedBy = createdBy;
             DateTimeStart = dateTimeStart;
             DateTimeEnd = dateTimeEnd;
+            
         }
     }
 }
