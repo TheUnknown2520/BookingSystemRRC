@@ -17,13 +17,13 @@ namespace BookingSystemRRC.Services
         public BookingService(DbGenericService<Booking> dbService)
         {
             DbService = dbService;
-            //bookings = MockBooking.GetMockBookings();
-            //foreach (Booking booking in bookings)
-            //{
-            //    dbService.AddObjectAsync(booking);
-            //}
+            bookings = MockBooking.GetMockBookings();
+            foreach (Booking booking in bookings)
+            {
+                dbService.AddObjectAsync(booking);
+            }
 
-            bookings = dbService.GetObjectsAsync().Result.ToList();
+            //bookings = dbService.GetObjectsAsync().Result.ToList();
         }
 
 
@@ -84,18 +84,17 @@ namespace BookingSystemRRC.Services
                     {
                         b.CreatedBy = booking.CreatedBy;
                         b.NumberOfPeople = booking.NumberOfPeople;
-                        //b.TotalPrice = b.TotalPrice;
                         b.BookingComment = booking.BookingComment;
                         b.Type = booking.Type;
                         b.WeekDays = booking.WeekDays;
                         b.DateTimeStart = booking.DateTimeStart;
                         b.DateTimeEnd = booking.DateTimeEnd;
                     }
+                   
                 }
-
-                   await DbService.UpdateObjectAsync(booking);
-               
+                await DbService.UpdateObjectAsync(booking);
             }
+            
         }
 
         #endregion

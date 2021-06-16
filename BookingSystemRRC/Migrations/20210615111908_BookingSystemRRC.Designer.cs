@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingSystemRRC.Migrations
 {
     [DbContext(typeof(BookingDbContext))]
-    [Migration("20210527090815_BookingSystemRRC")]
+    [Migration("20210615111908_BookingSystemRRC")]
     partial class BookingSystemRRC
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,6 +42,9 @@ namespace BookingSystemRRC.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("GuestNumbe")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GuestNumber")
                         .HasColumnType("int");
 
                     b.Property<int>("NumberOfPeople")

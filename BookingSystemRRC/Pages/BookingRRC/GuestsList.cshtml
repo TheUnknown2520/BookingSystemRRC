@@ -1,4 +1,4 @@
-﻿@page
+﻿@page  "{handler?}"
 @model BookingSystemRRC.Pages.BookingRRC.GuestsListModel
 @{
 }
@@ -8,7 +8,7 @@
             <br />
             <form method="post" class="form-inline">
                 <input asp-for="@Model.Search" class="form-control mr-1" placeholder="Enter search term" />
-                <input type="submit" asp-page-handler="Search" value="Search" class="btn btn-primary" />
+                <input type="submit" asp-page-handler="NameSearch" value="Search" class="btn btn-primary" />
             </form>
         </div>
 
@@ -57,8 +57,8 @@
                             @guest.GuestNumbe
                         </td>
                         <td>
-                          @guest.FirstName
-                          @guest.LastName
+                            @guest.FirstName
+                            @guest.LastName
                         </td>
                         <td>
                             @guest.Email

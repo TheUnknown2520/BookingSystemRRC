@@ -15,11 +15,11 @@
                     <div class="col-50">
                         <h3>Kunde oplysninger</h3>
                         <label for="fname"><i class="fa fa-user"></i> Fornavn</label>
-                        <input type="text" asp-for="@Model.Guest.FirstName" id="fname" placeholder="John">
+                        <input type="text" asp-for="@Model.Guest.FirstName" id="fname" placeholder="Hans">
                         <span asp-validation-for="@Model.Guest.FirstName" class="text-danger"></span>
 
                         <label for="lname"><i class="fa fa-user"></i> Efternavn</label>
-                        <input type="text" asp-for="@Model.Guest.LastName" id="lname" placeholder="Johnson">
+                        <input type="text" asp-for="@Model.Guest.LastName" id="lname" placeholder="Hansen">
                         <span asp-validation-for="@Model.Guest.LastName" class="text-danger"></span>
 
                         <label for="phonenr"><i class="bi bi-phone-fill"></i> Telefon</label>
@@ -27,7 +27,7 @@
                         <span asp-validation-for="@Model.Guest.PhoneNumber"></span>
 
                         <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                        <input type="text" asp-for="@Model.Guest.Email" id="email" placeholder="John@Johnson.com">
+                        <input type="text" asp-for="@Model.Guest.Email" id="email" placeholder="Hans@Hansen.dk">
                         <span asp-validation-for="@Model.Guest.Email" class="text-danger"></span>
 
                         <label for="nationality"><i class="fa fa-institution"></i> Nationalitet</label>

@@ -18,12 +18,12 @@ namespace BookingSystemRRC.Services
         public GuestService(DbGenericService<Guest> dbService )
         {
             DbService = dbService;
-            //guests = MockGuest.GetMockGuests();
-            //foreach (Guest guest in guests)
-            //{
-            //    dbService.AddObjectAsync(guest);
-            //}
-            guests = DbService.GetObjectsAsync().Result.ToList();
+            guests = MockGuest.GetMockGuests();
+            foreach (Guest guest in guests)
+            {
+                dbService.AddObjectAsync(guest);
+            }
+            //guests = DbService.GetObjectsAsync().Result.ToList();
         }
 
 

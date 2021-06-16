@@ -52,6 +52,7 @@ namespace BookingSystemRRC.Migrations
                     WeekDays = table.Column<int>(type: "int", nullable: false),
                     DateTimeStart = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateTimeEnd = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    GuestNumber = table.Column<int>(type: "int", nullable: false),
                     GuestNumbe = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>

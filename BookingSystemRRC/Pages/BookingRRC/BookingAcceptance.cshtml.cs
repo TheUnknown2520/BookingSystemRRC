@@ -11,17 +11,23 @@ namespace BookingSystemRRC.Pages.BookingRRC
     public class BookingAcceptanceModel : PageModel
     {
         private BookingService bookingService;
+        private GuestService guestService;
         
 
         public List<Models.Booking> bookings { get; private set;}
 
-        public BookingAcceptanceModel(BookingService bookingService)
+        public List<Models.Guest> Guests { get; private set; }
+
+        public BookingAcceptanceModel(BookingService bookingService, GuestService guestService)
         {
             this.bookingService = bookingService;
+            this.guestService = guestService;
+
         }
         public IActionResult OnGet()
         {
             bookings = bookingService.GetBookings().ToList();
+            Guests = guestService.GetGuests().ToList();
             return Page();
         }
 
